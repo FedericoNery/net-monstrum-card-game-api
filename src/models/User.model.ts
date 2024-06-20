@@ -15,7 +15,14 @@ export class User extends Document {
   @Prop()
   email: string;
 
-  @Prop({ type: [{ type: MongooseSchema.Types.Array, ref: 'Folder' }] })
+  @Prop({
+    type: [
+      {
+        name: String,
+        cards: [{ type: MongooseSchema.Types.ObjectId, ref: 'Card' }],
+      },
+    ],
+  })
   folders: Folder[];
 }
 

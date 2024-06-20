@@ -4,12 +4,8 @@ import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { MongooseModule } from '@nestjs/mongoose';
 import { join } from 'path';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { ResolversModule } from './resolvers/resolvers.module';
 import { SeederModule } from './seeders/seeder.module';
 import { SeederService } from './seeders/seeder.service';
-import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -20,13 +16,9 @@ import { AuthModule } from './auth/auth.module';
       autoSchemaFile: join(process.cwd(), './src/schema.gql'),
       sortSchema: true,
     }),
-    ResolversModule,
-    //SeederModule,
-    AuthModule,
+    SeederModule,
   ],
-  controllers: [AppController],
-  providers: [AppService, 
-    //SeederService
-  ],
+  controllers: [],
+  providers: [SeederService],
 })
-export class AppModule {}
+export class PopulateModule {}

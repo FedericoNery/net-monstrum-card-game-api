@@ -16,11 +16,13 @@ import {
   CardSummonDigimonSchema,
 } from '../models/CardSummonDigimon.model';
 import { CardEnergy, CardEnergySchema } from '../models/CardEnergy.model';
+import { Folder, FolderSchema } from '../models/Folder.model';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: User.name, schema: UserSchema },
+      { name: Folder.name, schema: FolderSchema },
       { name: Card.name, schema: CardSchema },
       { name: CardDigimon.name, schema: CardDigimonSchema },
       { name: CardEquipment.name, schema: CardEquipmentSchema },

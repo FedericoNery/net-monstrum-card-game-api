@@ -1,4 +1,4 @@
-import { folders } from './folders.data';
+import { folders, folders2 } from './folders.data';
 
 const usersData = [
   {
@@ -11,7 +11,7 @@ const usersData = [
     username: 'User 2',
     password: '12345',
     email: 'email1@email.com',
-    folders: folders,
+    folders: folders2,
   },
 ];
 

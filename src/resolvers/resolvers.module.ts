@@ -7,7 +7,6 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { SeederModule } from '../seeders/seeder.module';
 import { CardDigimon, CardDigimonSchema } from '../models/CardDigimon.model';
 import { AuthResolver } from './auth.resolver';
-import { CommandHandlersModule } from '../commandHandlers/commandHandlers.module';
 import { Card, CardSchema } from '../models/Card.model';
 import {
   CardEquipment,
@@ -18,14 +17,15 @@ import {
   CardSummonDigimon,
   CardSummonDigimonSchema,
 } from '../models/CardSummonDigimon.model';
+import { Folder, FolderSchema } from '../models/Folder.model';
 
 @Module({
   imports: [
-    CommandHandlersModule,
     ServicesModule,
-    SeederModule,
+    //SeederModule,
     MongooseModule.forFeature([
       { name: User.name, schema: UserSchema },
+      { name: Folder.name, schema: FolderSchema },
       { name: Card.name, schema: CardSchema },
       { name: CardDigimon.name, schema: CardDigimonSchema },
       { name: CardEquipment.name, schema: CardEquipmentSchema },

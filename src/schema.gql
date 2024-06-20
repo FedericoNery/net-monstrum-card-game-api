@@ -2,6 +2,16 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Card {
+  attackPoints: Float!
+  color: String!
+  energyCount: Float!
+  healthPoints: Float!
+  name: String!
+  quantityOfTargets: Float
+  targetScope: String!
+}
+
 input CreateUserInput {
   password: String!
   username: String!
@@ -12,38 +22,20 @@ type CreatedUserOutput {
   username: String!
 }
 
-type Digimon {
-  defense: Float!
-  healthPoints: Float!
-  magicPoints: Float!
-  name: String!
-  nickName: String!
-  speed: Float!
-  spirit: Float!
-  strenght: Float!
-  wisdom: Float!
-}
-
-type InitialPack {
-  description: String!
-  digimons: [Digimon!]!
+type Folder {
+  cards: [Card!]!
   name: String!
 }
 
 type Mutation {
   createUser(createUserInput: CreateUserInput!): CreatedUserOutput!
-  selectInitialPack(selectInitialPackInput: SelectInitialPackInput!): String!
   signIn(signInInput: SignInInput!): SignInOutput!
 }
 
 type Query {
-  initialPacks: [InitialPack!]!
+  getUserById(id: String!): UserDetailInformation!
   sayHello: String!
   users: [User!]!
-}
-
-input SelectInitialPackInput {
-  packId: String!
 }
 
 input SignInInput {
@@ -57,5 +49,11 @@ type SignInOutput {
 
 type User {
   password: String!
+  username: String!
+}
+
+type UserDetailInformation {
+  email: String!
+  folders: [Folder!]!
   username: String!
 }
