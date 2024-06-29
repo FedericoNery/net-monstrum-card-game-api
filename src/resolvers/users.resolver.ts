@@ -8,7 +8,7 @@ import {
 } from '../schemas/user.schemas';
 import { UsersService } from '../service/users.service';
 
-@Resolver((of) => User)
+@Resolver()
 export class UsersResolver {
   constructor(private usersService: UsersService) {}
 

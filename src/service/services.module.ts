@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { UserSchema } from '../models/User.model';
-import { User } from '../schemas/user.schemas';
+import { UserSchema, User } from '../models/User.model';
 import { UsersService } from './users.service';
 import { CardDigimon, CardDigimonSchema } from '../models/CardDigimon.model';
 import { JwtService } from '@nestjs/jwt';

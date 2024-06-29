@@ -2,14 +2,42 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Card {
+interface Card {
+  name: String!
+  type: String!
+}
+
+type CardDigimon implements Card {
   attackPoints: Float!
-  color: String!
-  energyCount: Float!
+  color: String
+  energyCount: Float
+  evolution: CardDigimon
   healthPoints: Float!
+  level: Float!
+  name: String!
+  type: String!
+}
+
+type CardEnergy implements Card {
+  color: String
+  energyCount: Float
+  name: String!
+  type: String!
+}
+
+type CardEquipment implements Card {
+  attackPoints: Float
+  healthPoints: Float
   name: String!
   quantityOfTargets: Float
-  targetScope: String!
+  targetScope: String
+  type: String!
+}
+
+type CardSummonDigimon implements Card {
+  digimonsCards: [CardDigimon!]!
+  name: String!
+  type: String!
 }
 
 input CreateUserInput {

@@ -7,9 +7,11 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ResolversModule } from './resolvers/resolvers.module';
-import { SeederModule } from './seeders/seeder.module';
-import { SeederService } from './seeders/seeder.service';
 import { AuthModule } from './auth/auth.module';
+import { CardSummonDigimon } from './schemas/card_summon_digimon.schema';
+import { CardEnergy } from './schemas/card_energy.schema';
+import { CardDigimon } from './schemas/card_digimon.schema';
+import { CardEquipment } from './schemas/card_equipment.schema';
 
 @Module({
   imports: [
@@ -19,13 +21,22 @@ import { AuthModule } from './auth/auth.module';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), './src/schema.gql'),
       sortSchema: true,
+      buildSchemaOptions: {
+        orphanedTypes: [
+          CardSummonDigimon,
+          CardEnergy,
+          CardDigimon,
+          CardEquipment,
+        ],
+      },
     }),
     ResolversModule,
     //SeederModule,
     AuthModule,
   ],
   controllers: [AppController],
-  providers: [AppService, 
+  providers: [
+    AppService,
     //SeederService
   ],
 })

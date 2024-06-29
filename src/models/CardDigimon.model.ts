@@ -18,13 +18,15 @@ export class CardDigimon extends Card {
   @Prop()
   energyCount: number;
 
+  @Prop()
+  level: number;
+
   @Prop({
     type: MongooseSchema.Types.ObjectId,
-    ref: 'TemporalEvolution',
+    ref: 'CardDigimon',
     default: null,
     required: false,
   })
   evolution?: MongooseSchema.Types.ObjectId;
 }
-
 export const CardDigimonSchema = SchemaFactory.createForClass(CardDigimon);

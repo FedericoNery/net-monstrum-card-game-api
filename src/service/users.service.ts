@@ -2,14 +2,22 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateUserDto } from '../dto/CreateUser.dto';
+import { CardDigimonDocument } from '../models/CardDigimon.model';
 import { User, UserDocument } from '../models/User.model';
-import { encrypt } from '../utils/encryptation';
 import { UserDetailInformation } from '../schemas/user.schemas';
+import { encrypt } from '../utils/encryptation';
 
 interface CreatedUserOutputDto {
   id: string;
   username: string;
 }
+
+const CARD_TYPE = {
+  DIGIMON: 'Digimon',
+  EQUIPMENT: 'Equipment',
+  ENERGY: 'Energy',
+  SUMMON_DIGIMON: 'SummonDigimon',
+};
 
 @Injectable()
 export class UsersService {
@@ -20,6 +28,7 @@ export class UsersService {
     //VER DE QUIEN ES LA RESPONSABILIDAD DE HASHEAR LA PASS
     createdUser.password = await encrypt(createdUser.password);
     createdUser.save();
+    //@ts-ignore
     return { id: createdUser._id, username: createdUser.username };
   }
 
@@ -47,23 +56,77 @@ export class UsersService {
   }
 
   private mapUserToDTO(user: User): UserDetailInformation {
-    console.log(user.folders);
     return {
       username: user.username,
       email: user.email,
+      //@ts-ignore
       folders: user.folders.map((folder) => ({
         name: folder.name,
-        cards: folder.cards.map((card) => ({
-          id: card._id,
-          name: card.name,
-          color: card?.color,
-          attackPoints: card?.attackPoints,
-          healthPoints: card?.healthPoints,
-          energyCount: card?.energyCount,
-          quantityOfTargets: card?.quantityOfTargets,
-          targetScope: card?.targetScope,
-        })),
+        cards: folder.cards.map((card) => this.mapCard(card)),
       })),
+    };
+  }
+
+  private mapCard(card) {
+    const { type } = card;
+    if (type === CARD_TYPE.DIGIMON) {
+      const cardDigimon = card as CardDigimonDocument;
+      return {
+        __typename: 'CardDigimon',
+        type: CARD_TYPE.DIGIMON,
+        id: card._id,
+        name: cardDigimon.name,
+        color: cardDigimon?.color,
+        attackPoints: cardDigimon?.attackPoints ?? 0,
+        healthPoints: cardDigimon?.healthPoints ?? 0,
+        energyCount: cardDigimon?.energyCount,
+        level: cardDigimon?.level ?? 0,
+        evolution: cardDigimon?.evolution,
+      };
+    }
+    if (type === CARD_TYPE.SUMMON_DIGIMON) {
+      return {
+        __typename: 'CardSummonDigimon',
+        type: CARD_TYPE.SUMMON_DIGIMON,
+        id: card._id,
+        name: card.name,
+        digimonsCards: card?.digimonCards,
+      };
+    }
+    if (type === CARD_TYPE.EQUIPMENT) {
+      return {
+        __typename: 'CardEquipment',
+        type: CARD_TYPE.EQUIPMENT,
+        id: card._id,
+        name: card.name,
+        attackPoints: card?.attackPoints,
+        healthPoints: card?.healthPoints,
+        quantityOfTargets: card?.quantityOfTargets,
+        targetScope: card?.targetScope,
+      };
+    }
+    if (type === CARD_TYPE.ENERGY) {
+      return {
+        __typename: 'CardEnergy',
+        type: CARD_TYPE.ENERGY,
+        id: card._id,
+        name: card.name,
+        color: card?.color,
+        energyCount: card?.energyCount,
+      };
+    }
+    return {
+      id: '',
+      name: '',
+      color: '',
+      attackPoints: 0,
+      healthPoints: 0,
+      energyCount: 0,
+      quantityOfTargets: 0,
+      level: 0,
+      targetScope: '',
+      evolution: {},
+      __typename: CARD_TYPE.DIGIMON,
     };
   }
 
