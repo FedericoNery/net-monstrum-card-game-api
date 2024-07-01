@@ -7,6 +7,13 @@ const COLORS = {
   BROWN: 'Brown',
 };
 
+const CARD_TYPE = {
+  DIGIMON: 'Digimon',
+  EQUIPMENT: 'Equipment',
+  ENERGY: 'Energy',
+  SUMMON_DIGIMON: 'SummonDigimon',
+};
+
 const cardsData = [
   {
     _id: '664e8b7ceb0218b7c40ce0a1',
@@ -14,12 +21,8 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0a2',
-      name: 'Greymon',
-      color: COLORS.RED,
-    },
-    type: 'Digimon',
+    evolution: '664e8b7ceb0218b7c40ce0a2',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -28,13 +31,9 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0a3',
-      name: 'MetalGreymon (Vaccine)',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0a3',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -43,13 +42,10 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0a4',
-      name: 'WarGreymon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0a4',
+
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -60,7 +56,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -69,13 +65,9 @@ const cardsData = [
     color: COLORS.BLUE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0a6',
-      name: 'Garurumon',
-      color: COLORS.BLUE,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0a6',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -84,13 +76,9 @@ const cardsData = [
     color: COLORS.BLUE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0a7',
-      name: 'WereGarurumon',
-      color: COLORS.BLUE,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0a7',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -99,13 +87,9 @@ const cardsData = [
     color: COLORS.BLUE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0a8',
-      name: 'MetalGarurumon',
-      color: COLORS.BLUE,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0a8',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -116,7 +100,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -125,13 +109,9 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0aa',
-      name: 'ExVeemon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0aa',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -140,13 +120,9 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0ab',
-      name: 'Paildramon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0ab',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -155,13 +131,9 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0ac',
-      name: 'Imperialdramon Fighter Mode',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0ac',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -172,7 +144,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -181,13 +153,9 @@ const cardsData = [
     color: COLORS.WHITE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0ae',
-      name: 'Angemon',
-      color: COLORS.WHITE,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0ae',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -196,13 +164,9 @@ const cardsData = [
     color: COLORS.WHITE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0af',
-      name: 'MagnaAngemon',
-      color: COLORS.WHITE,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0af',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -211,13 +175,10 @@ const cardsData = [
     color: COLORS.WHITE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0b0',
-      name: 'Seraphimon',
-      color: COLORS.WHITE,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0b0',
+
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -228,7 +189,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -237,13 +198,9 @@ const cardsData = [
     color: COLORS.WHITE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0b2',
-      name: 'Gatomon',
-      color: COLORS.WHITE,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0b2',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -252,13 +209,9 @@ const cardsData = [
     color: COLORS.WHITE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0b3',
-      name: 'Angewomon',
-      color: COLORS.WHITE,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0b3',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -267,13 +220,9 @@ const cardsData = [
     color: COLORS.WHITE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0b4',
-      name: 'Ophanimon',
-      color: COLORS.WHITE,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0b4',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -284,7 +233,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -293,13 +242,9 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0b6',
-      name: 'Birdramon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0b6',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -308,13 +253,9 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0b7',
-      name: 'Garudamon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0b7',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -323,13 +264,9 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0b8',
-      name: 'Phoenixmon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0b8',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -340,7 +277,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -349,13 +286,9 @@ const cardsData = [
     color: COLORS.GREEN,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0ba',
-      name: 'Kabuterimon',
-      color: COLORS.GREEN,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0ba',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -364,13 +297,9 @@ const cardsData = [
     color: COLORS.GREEN,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0bb',
-      name: 'MegaKabuterimon',
-      color: COLORS.GREEN,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0bb',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -379,13 +308,9 @@ const cardsData = [
     color: COLORS.GREEN,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0bc',
-      name: 'HerculesKabuterimon',
-      color: COLORS.GREEN,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0bc',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -396,7 +321,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -405,13 +330,9 @@ const cardsData = [
     color: COLORS.GREEN,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0be',
-      name: 'Togemon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0be',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -420,13 +341,9 @@ const cardsData = [
     color: COLORS.GREEN,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0bf',
-      name: 'Lillymon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0bf',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -435,13 +352,9 @@ const cardsData = [
     color: COLORS.GREEN,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0c0',
-      name: 'Rosemon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0c0',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -452,7 +365,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -461,13 +374,9 @@ const cardsData = [
     color: COLORS.BLUE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0c2',
-      name: 'Ikkakumon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0c2',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -476,13 +385,9 @@ const cardsData = [
     color: COLORS.BLUE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0c3',
-      name: 'Zudomon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0c3',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -491,13 +396,9 @@ const cardsData = [
     color: COLORS.BLUE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0c4',
-      name: 'Vikemon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0c4',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -508,7 +409,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -517,13 +418,9 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0c6',
-      name: 'Leomon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0c6',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -532,13 +429,9 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0c7',
-      name: 'IceLeomon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0c7',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -547,13 +440,9 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0c8',
-      name: 'Saberdramon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0c8',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -564,7 +453,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -573,13 +462,9 @@ const cardsData = [
     color: COLORS.WHITE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0ca',
-      name: 'Kyubimon',
-      color: COLORS.WHITE,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0ca',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -588,13 +473,9 @@ const cardsData = [
     color: COLORS.WHITE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0cb',
-      name: 'Taomon',
-      color: COLORS.WHITE,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0cb',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -603,13 +484,9 @@ const cardsData = [
     color: COLORS.WHITE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0cc',
-      name: 'Sakuyamon',
-      color: COLORS.WHITE,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0cc',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -620,7 +497,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -629,13 +506,9 @@ const cardsData = [
     color: COLORS.GREEN,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0ce',
-      name: 'Gargomon',
-      color: COLORS.GREEN,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0ce',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -644,13 +517,10 @@ const cardsData = [
     color: COLORS.GREEN,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0cf',
-      name: 'Rapidmon',
-      color: COLORS.GREEN,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0cf',
+
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -659,13 +529,9 @@ const cardsData = [
     color: COLORS.GREEN,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0d0',
-      name: 'MegaGargomon',
-      color: COLORS.GREEN,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0d0',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -676,7 +542,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -685,13 +551,9 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0d2',
-      name: 'Growlmon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0d2',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -700,13 +562,9 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0d3',
-      name: 'WarGrowlmon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0d3',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -715,13 +573,10 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0d4',
-      name: 'Gallantmon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0d4',
+
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -732,7 +587,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -741,13 +596,10 @@ const cardsData = [
     color: 'BLACK',
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0d6',
-      name: 'Wizardmon',
-      color: 'BLACK',
-    },
+    evolution: '664e8b7ceb0218b7c40ce0d6',
+
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -756,13 +608,9 @@ const cardsData = [
     color: 'BLACK',
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0d7',
-      name: 'Mistymon',
-      color: 'BLACK',
-    },
+    evolution: '664e8b7ceb0218b7c40ce0d7',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -771,13 +619,9 @@ const cardsData = [
     color: 'BLACK',
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0d8',
-      name: 'Dynasmon',
-      color: 'BLACK',
-    },
+    evolution: '664e8b7ceb0218b7c40ce0d8',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -788,7 +632,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -797,13 +641,9 @@ const cardsData = [
     color: COLORS.GREEN,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0da',
-      name: 'Grizzlymon',
-      color: COLORS.GREEN,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0da',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -812,13 +652,9 @@ const cardsData = [
     color: COLORS.GREEN,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0db',
-      name: 'Gigasmon',
-      color: COLORS.GREEN,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0db',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -827,13 +663,9 @@ const cardsData = [
     color: COLORS.GREEN,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0dc',
-      name: 'Hisyaryumon',
-      color: COLORS.GREEN,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0dc',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -844,7 +676,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -853,13 +685,9 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0de',
-      name: 'BurningGreymon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0de',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -868,13 +696,9 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0df',
-      name: 'Aldamon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0df',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -883,13 +707,9 @@ const cardsData = [
     color: COLORS.RED,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0e0',
-      name: 'EmperorGreymon',
-      color: COLORS.RED,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0e0',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -900,7 +720,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -909,13 +729,9 @@ const cardsData = [
     color: COLORS.BLUE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0e2',
-      name: 'KendoGarurumon',
-      color: COLORS.BLUE,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0e2',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 1,
   },
   {
@@ -924,13 +740,9 @@ const cardsData = [
     color: COLORS.BLUE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0e3',
-      name: 'BeoWolfmon',
-      color: COLORS.BLUE,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0e3',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 2,
   },
   {
@@ -939,13 +751,9 @@ const cardsData = [
     color: COLORS.BLUE,
     attackPoints: 10,
     healthPoints: 10,
-    evolution: {
-      _id: '664e8b7ceb0218b7c40ce0e4',
-      name: 'Magnagarurumon',
-      color: COLORS.BLUE,
-    },
+    evolution: '664e8b7ceb0218b7c40ce0e4',
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 3,
   },
   {
@@ -956,7 +764,7 @@ const cardsData = [
     healthPoints: 10,
     evolution: null,
     energyCount: 1,
-    type: 'Digimon',
+    type: CARD_TYPE.DIGIMON,
     level: 4,
   },
   {
@@ -965,7 +773,7 @@ const cardsData = [
     attackPoints: 0,
     healthPoints: 10,
     targetScope: 'UNIQUE',
-    type: 'Equipment',
+    type: CARD_TYPE.EQUIPMENT,
     quantityOfTargets: 1,
   },
   {
@@ -974,7 +782,7 @@ const cardsData = [
     attackPoints: 10,
     healthPoints: 0,
     targetScope: 'UNIQUE',
-    type: 'Equipment',
+    type: CARD_TYPE.EQUIPMENT,
     quantityOfTargets: 1,
   },
   {
@@ -983,7 +791,7 @@ const cardsData = [
     attackPoints: 0,
     healthPoints: 10,
     targetScope: 'PARTIAL',
-    type: 'Equipment',
+    type: CARD_TYPE.EQUIPMENT,
     quantityOfTargets: 2,
   },
   {
@@ -992,7 +800,7 @@ const cardsData = [
     attackPoints: 0,
     healthPoints: 10,
     targetScope: 'PARTIAL',
-    type: 'Equipment',
+    type: CARD_TYPE.EQUIPMENT,
     quantityOfTargets: 3,
   },
   {
@@ -1001,7 +809,7 @@ const cardsData = [
     attackPoints: 0,
     healthPoints: 10,
     targetScope: 'PARTIAL',
-    type: 'Equipment',
+    type: CARD_TYPE.EQUIPMENT,
     quantityOfTargets: 4,
   },
   {
@@ -1010,7 +818,7 @@ const cardsData = [
     attackPoints: 10,
     healthPoints: 0,
     targetScope: 'PARTIAL',
-    type: 'Equipment',
+    type: CARD_TYPE.EQUIPMENT,
     quantityOfTargets: 2,
   },
   {
@@ -1019,7 +827,7 @@ const cardsData = [
     attackPoints: 10,
     healthPoints: 0,
     targetScope: 'PARTIAL',
-    type: 'Equipment',
+    type: CARD_TYPE.EQUIPMENT,
     quantityOfTargets: 3,
   },
   {
@@ -1028,7 +836,7 @@ const cardsData = [
     attackPoints: 10,
     healthPoints: 0,
     targetScope: 'PARTIAL',
-    type: 'Equipment',
+    type: CARD_TYPE.EQUIPMENT,
     quantityOfTargets: 4,
   },
   {
@@ -1037,7 +845,7 @@ const cardsData = [
     attackPoints: 10,
     healthPoints: 10,
     targetScope: 'ALL',
-    type: 'Equipment',
+    type: CARD_TYPE.EQUIPMENT,
     quantityOfTargets: null,
   },
   {
@@ -1045,142 +853,153 @@ const cardsData = [
     name: 'Red Energy +1',
     color: COLORS.RED,
     energyCount: 1,
-    type: 'Energy',
+    type: CARD_TYPE.ENERGY,
   },
   {
     _id: '664e8b7ceb0218b7c40ce0ef',
     name: 'Green Energy +1',
     color: COLORS.GREEN,
     energyCount: 1,
-    type: 'Energy',
+    type: CARD_TYPE.ENERGY,
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f0',
     name: 'Black Energy +1',
     color: 'BLACK',
     energyCount: 1,
-    type: 'Energy',
+    type: CARD_TYPE.ENERGY,
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f1',
     name: 'Blue Energy +1',
     color: COLORS.BLUE,
     energyCount: 1,
-    type: 'Energy',
+    type: CARD_TYPE.ENERGY,
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f2',
     name: 'White Energy +1',
     color: COLORS.WHITE,
     energyCount: 1,
-    type: 'Energy',
+    type: CARD_TYPE.ENERGY,
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f3',
     name: 'Brown Energy +1',
     color: 'BROWN',
     energyCount: 1,
-    type: 'Energy',
+    type: CARD_TYPE.ENERGY,
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f4',
     name: 'Red Energy -1',
     color: COLORS.RED,
     energyCount: -1,
-    type: 'Energy',
+    type: CARD_TYPE.ENERGY,
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f5',
     name: 'Green Energy -1',
     color: COLORS.GREEN,
     energyCount: -1,
-    type: 'Energy',
+    type: CARD_TYPE.ENERGY,
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f6',
     name: 'Black Energy -1',
     color: 'BLACK',
     energyCount: -1,
-    type: 'Energy',
+    type: CARD_TYPE.ENERGY,
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f7',
     name: 'Blue Energy -1',
     color: COLORS.BLUE,
     energyCount: -1,
-    type: 'Energy',
+    type: CARD_TYPE.ENERGY,
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f8',
     name: 'White Energy -1',
     color: COLORS.WHITE,
     energyCount: -1,
-    type: 'Energy',
+    type: CARD_TYPE.ENERGY,
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f9',
     name: 'Brown Energy -1',
     color: 'BROWN',
     energyCount: -1,
-    type: 'Energy',
+    type: CARD_TYPE.ENERGY,
   },
   {
     _id: '664e8b7ceb0218b7c40ce0fa',
     name: 'Summon Gatomon x2',
     digimons: [
       {
-        _id: '664e8b7ceb0218b7c40ce0fb',
+        cardDigimonId: '664e8b7ceb0218b7c40ce0fb',
         name: 'Gatomon',
         color: COLORS.WHITE,
         attack: 10,
         defense: 10,
         evolution: { name: 'Angewomon', color: COLORS.WHITE },
-        type: 'Digimon',
+        type: CARD_TYPE.DIGIMON,
         level: 2,
       },
       {
-        _id: '664e8b7ceb0218b7c40ce0fc',
+        cardDigimonId: '664e8b7ceb0218b7c40ce0fc',
         name: 'Gatomon',
         color: COLORS.WHITE,
         attack: 10,
         defense: 10,
         evolution: { name: 'Angewomon', color: COLORS.WHITE },
-        type: 'Digimon',
+        type: CARD_TYPE.DIGIMON,
         level: 2,
       },
     ],
-    type: 'SummonDigimon',
+    type: CARD_TYPE.SUMMON_DIGIMON,
   },
   {
     _id: '664e8b7ceb0218b7c40ce0fd',
     name: 'Summon Angemon x2',
     digimons: [
       {
-        _id: '664e8b7ceb0218b7c40ce0fe',
+        cardDigimonId: '664e8b7ceb0218b7c40ce0fe',
         name: 'Angemon',
         color: COLORS.WHITE,
         attack: 10,
         defense: 10,
         evolution: { name: 'MagnaAngemon', color: COLORS.WHITE },
-        type: 'Digimon',
+        type: CARD_TYPE.DIGIMON,
         level: 2,
       },
       {
-        _id: '664e8b7ceb0218b7c40ce0ff',
+        cardDigimonId: '664e8b7ceb0218b7c40ce0ff',
         name: 'Angemon',
         color: COLORS.WHITE,
         attack: 10,
         defense: 10,
         evolution: { name: 'MagnaAngemon', color: COLORS.WHITE },
-        type: 'Digimon',
+        type: CARD_TYPE.DIGIMON,
         level: 2,
       },
     ],
-    type: 'SummonDigimon',
+    type: CARD_TYPE.SUMMON_DIGIMON,
   },
 ];
 
-export { cardsData as digimonsData };
+const digimons = cardsData
+  .filter((x) => x.type === CARD_TYPE.DIGIMON)
+  .reverse();
+const equipments = cardsData.filter((x) => x.type === CARD_TYPE.EQUIPMENT);
+const energies = cardsData.filter((x) => x.type === CARD_TYPE.ENERGY);
+const summonDigimons = cardsData.filter((x) => x.type === CARD_TYPE.SUMMON_DIGIMON);
+const orderedCards = digimons
+  .concat(equipments)
+  .concat(energies)
+  .concat(summonDigimons);
+
+export { orderedCards as digimonsData };
 
 /*
 "664e8b7ceb0218b7c40ce100"

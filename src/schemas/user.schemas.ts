@@ -1,4 +1,5 @@
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
+import { Folder } from './folder.schema';
 
 @ObjectType()
 export class User {
@@ -7,6 +8,18 @@ export class User {
 
   @Field({ nullable: false })
   password: string;
+}
+
+@ObjectType()
+export class UserDetailInformation {
+  @Field({ nullable: false })
+  username: string;
+
+  @Field({ nullable: false })
+  email: string;
+
+  @Field((type) => [Folder])
+  folders: Folder[];
 }
 
 @ObjectType()

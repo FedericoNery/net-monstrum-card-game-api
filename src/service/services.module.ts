@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { UserSchema } from '../models/User.model';
-import { User } from '../schemas/user.schemas';
+import { UserSchema, User } from '../models/User.model';
 import { UsersService } from './users.service';
 import { CardDigimon, CardDigimonSchema } from '../models/CardDigimon.model';
 import { JwtService } from '@nestjs/jwt';
@@ -16,11 +15,13 @@ import {
   CardSummonDigimonSchema,
 } from '../models/CardSummonDigimon.model';
 import { CardEnergy, CardEnergySchema } from '../models/CardEnergy.model';
+import { Folder, FolderSchema } from '../models/Folder.model';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: User.name, schema: UserSchema },
+      { name: Folder.name, schema: FolderSchema },
       { name: Card.name, schema: CardSchema },
       { name: CardDigimon.name, schema: CardDigimonSchema },
       { name: CardEquipment.name, schema: CardEquipmentSchema },

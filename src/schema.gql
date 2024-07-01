@@ -2,6 +2,44 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+interface Card {
+  name: String!
+  type: String!
+}
+
+type CardDigimon implements Card {
+  attackPoints: Float!
+  color: String
+  energyCount: Float
+  evolution: CardDigimon
+  healthPoints: Float!
+  level: Float!
+  name: String!
+  type: String!
+}
+
+type CardEnergy implements Card {
+  color: String
+  energyCount: Float
+  name: String!
+  type: String!
+}
+
+type CardEquipment implements Card {
+  attackPoints: Float
+  healthPoints: Float
+  name: String!
+  quantityOfTargets: Float
+  targetScope: String
+  type: String!
+}
+
+type CardSummonDigimon implements Card {
+  digimonsCards: [CardDigimon!]!
+  name: String!
+  type: String!
+}
+
 input CreateUserInput {
   password: String!
   username: String!
@@ -12,38 +50,20 @@ type CreatedUserOutput {
   username: String!
 }
 
-type Digimon {
-  defense: Float!
-  healthPoints: Float!
-  magicPoints: Float!
-  name: String!
-  nickName: String!
-  speed: Float!
-  spirit: Float!
-  strenght: Float!
-  wisdom: Float!
-}
-
-type InitialPack {
-  description: String!
-  digimons: [Digimon!]!
+type Folder {
+  cards: [Card!]!
   name: String!
 }
 
 type Mutation {
   createUser(createUserInput: CreateUserInput!): CreatedUserOutput!
-  selectInitialPack(selectInitialPackInput: SelectInitialPackInput!): String!
   signIn(signInInput: SignInInput!): SignInOutput!
 }
 
 type Query {
-  initialPacks: [InitialPack!]!
+  getUserById(id: String!): UserDetailInformation!
   sayHello: String!
   users: [User!]!
-}
-
-input SelectInitialPackInput {
-  packId: String!
 }
 
 input SignInInput {
@@ -57,5 +77,11 @@ type SignInOutput {
 
 type User {
   password: String!
+  username: String!
+}
+
+type UserDetailInformation {
+  email: String!
+  folders: [Folder!]!
   username: String!
 }
