@@ -33,7 +33,7 @@ export class UsersResolver {
     const createUserDto: CreateUserDto = {
       username: createUserInput.username,
       password: createUserInput.password,
-      digimons: [],
+      email: createUserInput.email,
     };
 
     return this.usersService.create(createUserDto);

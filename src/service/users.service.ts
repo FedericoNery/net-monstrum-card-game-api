@@ -19,6 +19,75 @@ const CARD_TYPE = {
   SUMMON_DIGIMON: 'SummonDigimon',
 };
 
+const defaultFolders = [
+  {
+    _id: '6670647552c07bc9e106083d',
+    name: 'Folder 1',
+    cards: [
+      '664e8b7ceb0218b7c40ce0a1',
+      '664e8b7ceb0218b7c40ce0a1',
+      '664e8b7ceb0218b7c40ce0a1',
+      '664e8b7ceb0218b7c40ce0a1',
+      '664e8b7ceb0218b7c40ce0a2',
+      '664e8b7ceb0218b7c40ce0a2',
+      '664e8b7ceb0218b7c40ce0a2',
+      '664e8b7ceb0218b7c40ce0a2',
+      '664e8b7ceb0218b7c40ce0a3',
+      '664e8b7ceb0218b7c40ce0a3',
+      '664e8b7ceb0218b7c40ce0a3',
+      '664e8b7ceb0218b7c40ce0a3',
+      '664e8b7ceb0218b7c40ce0a4',
+      '664e8b7ceb0218b7c40ce0a4',
+      '664e8b7ceb0218b7c40ce0a4',
+      '664e8b7ceb0218b7c40ce0a4',
+    ],
+  },
+  {
+    _id: '6670647552c07bc9e106083e',
+    name: 'Folder 2',
+    cards: [
+      '664e8b7ceb0218b7c40ce0a5',
+      '664e8b7ceb0218b7c40ce0a5',
+      '664e8b7ceb0218b7c40ce0a5',
+      '664e8b7ceb0218b7c40ce0a5',
+      '664e8b7ceb0218b7c40ce0a6',
+      '664e8b7ceb0218b7c40ce0a6',
+      '664e8b7ceb0218b7c40ce0a6',
+      '664e8b7ceb0218b7c40ce0a6',
+      '664e8b7ceb0218b7c40ce0a7',
+      '664e8b7ceb0218b7c40ce0a7',
+      '664e8b7ceb0218b7c40ce0a7',
+      '664e8b7ceb0218b7c40ce0a7',
+      '664e8b7ceb0218b7c40ce0a8',
+      '664e8b7ceb0218b7c40ce0a8',
+      '664e8b7ceb0218b7c40ce0a8',
+      '664e8b7ceb0218b7c40ce0a8',
+    ],
+  },
+  {
+    _id: '6670647552c07bc9e106083f',
+    name: 'Folder 3',
+    cards: [
+      '664e8b7ceb0218b7c40ce0a9',
+      '664e8b7ceb0218b7c40ce0a9',
+      '664e8b7ceb0218b7c40ce0a9',
+      '664e8b7ceb0218b7c40ce0a9',
+      '664e8b7ceb0218b7c40ce0aa',
+      '664e8b7ceb0218b7c40ce0aa',
+      '664e8b7ceb0218b7c40ce0aa',
+      '664e8b7ceb0218b7c40ce0aa',
+      '664e8b7ceb0218b7c40ce0ab',
+      '664e8b7ceb0218b7c40ce0ab',
+      '664e8b7ceb0218b7c40ce0ab',
+      '664e8b7ceb0218b7c40ce0ab',
+      '664e8b7ceb0218b7c40ce0ac',
+      '664e8b7ceb0218b7c40ce0ac',
+      '664e8b7ceb0218b7c40ce0ac',
+      '664e8b7ceb0218b7c40ce0ac',
+    ],
+  },
+];
+
 @Injectable()
 export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
@@ -27,6 +96,9 @@ export class UsersService {
     const createdUser = new this.userModel(createUserDto);
     //VER DE QUIEN ES LA RESPONSABILIDAD DE HASHEAR LA PASS
     createdUser.password = await encrypt(createdUser.password);
+    createdUser.folders = defaultFolders;
+
+    //OBTENER OBJECTS ID'S O HARDCODEARLOS
     createdUser.save();
     //@ts-ignore
     return { id: createdUser._id, username: createdUser.username };
