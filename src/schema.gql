@@ -41,6 +41,7 @@ type CardSummonDigimon implements Card {
 }
 
 input CreateUserInput {
+  email: String!
   password: String!
   username: String!
 }

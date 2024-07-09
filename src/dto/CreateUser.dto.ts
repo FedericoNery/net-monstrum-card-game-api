@@ -1,7 +1,7 @@
 export class CreateUserDto {
   readonly username: string;
   readonly password: string;
-  readonly digimons = [];
+  readonly email: string;
 }
 
 export class LoginInputUserDto {

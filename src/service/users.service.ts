@@ -6,6 +6,7 @@ import { CardDigimonDocument } from '../models/CardDigimon.model';
 import { User, UserDocument } from '../models/User.model';
 import { UserDetailInformation } from '../schemas/user.schemas';
 import { encrypt } from '../utils/encryptation';
+import { Folder, FolderDocument } from '../models/Folder.model';
 
 interface CreatedUserOutputDto {
   id: string;
@@ -19,17 +20,97 @@ const CARD_TYPE = {
   SUMMON_DIGIMON: 'SummonDigimon',
 };
 
+const defaultFolders = [
+  {
+    name: 'Folder 1',
+    cards: [
+      '664e8b7ceb0218b7c40ce0a1',
+      '664e8b7ceb0218b7c40ce0a1',
+      '664e8b7ceb0218b7c40ce0a1',
+      '664e8b7ceb0218b7c40ce0a1',
+      '664e8b7ceb0218b7c40ce0a2',
+      '664e8b7ceb0218b7c40ce0a2',
+      '664e8b7ceb0218b7c40ce0a2',
+      '664e8b7ceb0218b7c40ce0a2',
+      '664e8b7ceb0218b7c40ce0a3',
+      '664e8b7ceb0218b7c40ce0a3',
+      '664e8b7ceb0218b7c40ce0a3',
+      '664e8b7ceb0218b7c40ce0a3',
+      '664e8b7ceb0218b7c40ce0a4',
+      '664e8b7ceb0218b7c40ce0a4',
+      '664e8b7ceb0218b7c40ce0a4',
+      '664e8b7ceb0218b7c40ce0a4',
+    ],
+  },
+  {
+    name: 'Folder 2',
+    cards: [
+      '664e8b7ceb0218b7c40ce0a5',
+      '664e8b7ceb0218b7c40ce0a5',
+      '664e8b7ceb0218b7c40ce0a5',
+      '664e8b7ceb0218b7c40ce0a5',
+      '664e8b7ceb0218b7c40ce0a6',
+      '664e8b7ceb0218b7c40ce0a6',
+      '664e8b7ceb0218b7c40ce0a6',
+      '664e8b7ceb0218b7c40ce0a6',
+      '664e8b7ceb0218b7c40ce0a7',
+      '664e8b7ceb0218b7c40ce0a7',
+      '664e8b7ceb0218b7c40ce0a7',
+      '664e8b7ceb0218b7c40ce0a7',
+      '664e8b7ceb0218b7c40ce0a8',
+      '664e8b7ceb0218b7c40ce0a8',
+      '664e8b7ceb0218b7c40ce0a8',
+      '664e8b7ceb0218b7c40ce0a8',
+    ],
+  },
+  {
+    name: 'Folder 3',
+    cards: [
+      '664e8b7ceb0218b7c40ce0a9',
+      '664e8b7ceb0218b7c40ce0a9',
+      '664e8b7ceb0218b7c40ce0a9',
+      '664e8b7ceb0218b7c40ce0a9',
+      '664e8b7ceb0218b7c40ce0aa',
+      '664e8b7ceb0218b7c40ce0aa',
+      '664e8b7ceb0218b7c40ce0aa',
+      '664e8b7ceb0218b7c40ce0aa',
+      '664e8b7ceb0218b7c40ce0ab',
+      '664e8b7ceb0218b7c40ce0ab',
+      '664e8b7ceb0218b7c40ce0ab',
+      '664e8b7ceb0218b7c40ce0ab',
+      '664e8b7ceb0218b7c40ce0ac',
+      '664e8b7ceb0218b7c40ce0ac',
+      '664e8b7ceb0218b7c40ce0ac',
+      '664e8b7ceb0218b7c40ce0ac',
+    ],
+  },
+];
+
 @Injectable()
 export class UsersService {
-  constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
+  constructor(
+    @InjectModel(User.name) private userModel: Model<UserDocument>,
+    @InjectModel(Folder.name) private folderModel: Model<FolderDocument>,
+  ) {}
 
   async create(createUserDto: CreateUserDto): Promise<CreatedUserOutputDto> {
-    const createdUser = new this.userModel(createUserDto);
-    //VER DE QUIEN ES LA RESPONSABILIDAD DE HASHEAR LA PASS
+    const createdUser = new this.userModel();
+    createdUser.email = createUserDto.email;
+    createdUser.password = createUserDto.password;
+    createdUser.username = createUserDto.username;
     createdUser.password = await encrypt(createdUser.password);
+    createdUser.folders = [
+      new this.folderModel(defaultFolders[0]),
+      new this.folderModel(defaultFolders[1]),
+      new this.folderModel(defaultFolders[2]),
+    ];
+
+    //OBTENER OBJECTS ID'S O HARDCODEARLOS
     createdUser.save();
-    //@ts-ignore
-    return { id: createdUser._id, username: createdUser.username };
+    return {
+      id: createdUser._id,
+      username: createdUser.username,
+    } as CreatedUserOutputDto;
   }
 
   async findAll(): Promise<User[]> {

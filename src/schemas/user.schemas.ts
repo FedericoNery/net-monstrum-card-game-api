@@ -38,6 +38,9 @@ export class CreateUserInput {
 
   @Field({ nullable: false })
   password: string;
+
+  @Field({ nullable: false })
+  email: string;
 }
 
 //TODO : VER SI EL TIPO DE DATO ES EL CORRECTO
