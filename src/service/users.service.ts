@@ -7,90 +7,21 @@ import { User, UserDocument } from '../models/User.model';
 import { UserDetailInformation } from '../schemas/user.schemas';
 import { encrypt } from '../utils/encryptation';
 import { Folder, FolderDocument } from '../models/Folder.model';
+import { CARD_TYPE, defaultFolders } from './constants';
+import { Card, CardDocument } from '../models/Card.model';
+import { PurchasedCard } from '../models/PurchasedCard.model';
 
 interface CreatedUserOutputDto {
   id: string;
   username: string;
 }
 
-const CARD_TYPE = {
-  DIGIMON: 'Digimon',
-  EQUIPMENT: 'Equipment',
-  ENERGY: 'Energy',
-  SUMMON_DIGIMON: 'SummonDigimon',
-};
-
-const defaultFolders = [
-  {
-    name: 'Folder 1',
-    cards: [
-      '664e8b7ceb0218b7c40ce0a1',
-      '664e8b7ceb0218b7c40ce0a1',
-      '664e8b7ceb0218b7c40ce0a1',
-      '664e8b7ceb0218b7c40ce0a1',
-      '664e8b7ceb0218b7c40ce0a2',
-      '664e8b7ceb0218b7c40ce0a2',
-      '664e8b7ceb0218b7c40ce0a2',
-      '664e8b7ceb0218b7c40ce0a2',
-      '664e8b7ceb0218b7c40ce0a3',
-      '664e8b7ceb0218b7c40ce0a3',
-      '664e8b7ceb0218b7c40ce0a3',
-      '664e8b7ceb0218b7c40ce0a3',
-      '664e8b7ceb0218b7c40ce0a4',
-      '664e8b7ceb0218b7c40ce0a4',
-      '664e8b7ceb0218b7c40ce0a4',
-      '664e8b7ceb0218b7c40ce0a4',
-    ],
-  },
-  {
-    name: 'Folder 2',
-    cards: [
-      '664e8b7ceb0218b7c40ce0a5',
-      '664e8b7ceb0218b7c40ce0a5',
-      '664e8b7ceb0218b7c40ce0a5',
-      '664e8b7ceb0218b7c40ce0a5',
-      '664e8b7ceb0218b7c40ce0a6',
-      '664e8b7ceb0218b7c40ce0a6',
-      '664e8b7ceb0218b7c40ce0a6',
-      '664e8b7ceb0218b7c40ce0a6',
-      '664e8b7ceb0218b7c40ce0a7',
-      '664e8b7ceb0218b7c40ce0a7',
-      '664e8b7ceb0218b7c40ce0a7',
-      '664e8b7ceb0218b7c40ce0a7',
-      '664e8b7ceb0218b7c40ce0a8',
-      '664e8b7ceb0218b7c40ce0a8',
-      '664e8b7ceb0218b7c40ce0a8',
-      '664e8b7ceb0218b7c40ce0a8',
-    ],
-  },
-  {
-    name: 'Folder 3',
-    cards: [
-      '664e8b7ceb0218b7c40ce0a9',
-      '664e8b7ceb0218b7c40ce0a9',
-      '664e8b7ceb0218b7c40ce0a9',
-      '664e8b7ceb0218b7c40ce0a9',
-      '664e8b7ceb0218b7c40ce0aa',
-      '664e8b7ceb0218b7c40ce0aa',
-      '664e8b7ceb0218b7c40ce0aa',
-      '664e8b7ceb0218b7c40ce0aa',
-      '664e8b7ceb0218b7c40ce0ab',
-      '664e8b7ceb0218b7c40ce0ab',
-      '664e8b7ceb0218b7c40ce0ab',
-      '664e8b7ceb0218b7c40ce0ab',
-      '664e8b7ceb0218b7c40ce0ac',
-      '664e8b7ceb0218b7c40ce0ac',
-      '664e8b7ceb0218b7c40ce0ac',
-      '664e8b7ceb0218b7c40ce0ac',
-    ],
-  },
-];
-
 @Injectable()
 export class UsersService {
   constructor(
     @InjectModel(User.name) private userModel: Model<UserDocument>,
     @InjectModel(Folder.name) private folderModel: Model<FolderDocument>,
+    @InjectModel(Card.name) private cardModel: Model<CardDocument>,
   ) {}
 
   async create(createUserDto: CreateUserDto): Promise<CreatedUserOutputDto> {
@@ -131,7 +62,14 @@ export class UsersService {
       .populate({
         path: 'folders.cards',
         model: 'Card',
+        populate: {
+          path: 'evolution',
+          model: 'CardDigimon',
+          options: { strictPopulate: false },
+        },
+        options: { strictPopulate: false },
       })
+      .lean()
       .exec();
     return this.mapUserToDTO(user);
   }
@@ -217,5 +155,49 @@ export class UsersService {
       { $set: user },
     );
     return userUpdated;
+  }
+
+  async getAvailableCardsToPurchase(userId) {
+    const user = await this.userModel
+      .findById(userId)
+      .populate({
+        path: 'purchasedCards',
+        model: 'PurchasedCard',
+        options: { strictPopulate: false },
+      })
+      .lean()
+      .exec();
+    console.log(user);
+
+    const cards = await this.cardModel
+      .find()
+      .populate({
+        path: 'evolution',
+        model: 'CardDigimon',
+        options: { strictPopulate: false },
+      })
+      .lean()
+      .exec();
+    const cardsWithQuantity = cards.map((card: Card) => ({
+      card: this.mapCard(card),
+      //@ts-ignore
+      quantity: this.getQuantityOfPurchasedCards(card._id, user.purchasedCards),
+    }));
+
+    return cardsWithQuantity.filter((card) => card.quantity > 0);
+  }
+
+  private getQuantityOfPurchasedCards(
+    cardId: string,
+    purchasedCards: PurchasedCard[],
+  ) {
+    const cardSearched = purchasedCards.filter(
+      (card) => card._id === cardId && card.quantity < 4,
+    );
+    if (cardSearched.length === 0) {
+      return 4;
+    }
+
+    return 4 - cardSearched[0].quantity;
   }
 }

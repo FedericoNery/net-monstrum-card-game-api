@@ -1,6 +1,7 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CreateUserDto } from '../dto/CreateUser.dto';
 import {
+  AvailableCardToPurchase,
   CreateUserInput,
   CreatedUserOutput,
   User,
@@ -37,6 +38,18 @@ export class UsersResolver {
     };
 
     return this.usersService.create(createUserDto);
+  }
+
+  @Query(() => [AvailableCardToPurchase])
+  async getAvailableCardsToPurchase(
+    @Args('userId', { type: () => String }) userId: string,
+  ): Promise<AvailableCardToPurchase[]> {
+    //@ts-ignore
+    const availableCardsToPurchase =
+      this.usersService.getAvailableCardsToPurchase(userId);
+    console.log(availableCardsToPurchase);
+    //@ts-ignore
+    return availableCardsToPurchase;
   }
 
   /*  @UseGuards(AuthGuard)

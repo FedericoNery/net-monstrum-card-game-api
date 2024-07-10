@@ -25,7 +25,7 @@ export class CardDigimon implements Card {
   @Field()
   type: string = 'Digimon';
 
- static isTypeOf(obj: any): obj is CardDigimon {
+  static isTypeOf(obj: any): obj is CardDigimon {
     return obj.type === 'Digimon';
   }
 }

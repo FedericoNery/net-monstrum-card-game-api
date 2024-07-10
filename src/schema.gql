@@ -2,6 +2,11 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type AvailableCardToPurchase {
+  card: Card!
+  quantity: Float!
+}
+
 interface Card {
   name: String!
   type: String!
@@ -62,6 +67,7 @@ type Mutation {
 }
 
 type Query {
+  getAvailableCardsToPurchase(userId: String!): [AvailableCardToPurchase!]!
   getUserById(id: String!): UserDetailInformation!
   sayHello: String!
   users: [User!]!

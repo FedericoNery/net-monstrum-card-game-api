@@ -9,9 +9,9 @@ export class CardSummonDigimon implements Card {
   digimonsCards: CardDigimon[];
 
   @Field()
-  type: string  = 'SummonDigimon';
+  type: string = 'SummonDigimon';
 
-   static isTypeOf(obj: any): obj is CardSummonDigimon {
+  static isTypeOf(obj: any): obj is CardSummonDigimon {
     return obj.type === 'SummonDigimon';
-  } 
+  }
 }

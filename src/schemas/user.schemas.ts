@@ -1,5 +1,6 @@
 import { Field, InputType, ObjectType } from '@nestjs/graphql';
 import { Folder } from './folder.schema';
+import { Card } from './card.schema';
 
 @ObjectType()
 export class User {
@@ -30,6 +31,16 @@ export class CreatedUserOutput {
   @Field({ nullable: false })
   username: string;
 }
+
+@ObjectType()
+export class AvailableCardToPurchase {
+  @Field({ nullable: false })
+  quantity: number;
+
+  @Field(() => Card)
+  card: Card;
+}
+
 
 @InputType()
 export class CreateUserInput {
