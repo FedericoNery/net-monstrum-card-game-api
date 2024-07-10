@@ -17,9 +17,9 @@ export class CardEquipment implements Card {
   targetScope: string;
 
   @Field()
-  type: string  = 'Equipment';
+  type: string = 'Equipment';
 
- static isTypeOf(obj: any): obj is CardEquipment {
+  static isTypeOf(obj: any): obj is CardEquipment {
     return obj.type === 'Equipment';
   }
 }

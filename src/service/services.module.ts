@@ -16,6 +16,10 @@ import {
 } from '../models/CardSummonDigimon.model';
 import { CardEnergy, CardEnergySchema } from '../models/CardEnergy.model';
 import { Folder, FolderSchema } from '../models/Folder.model';
+import {
+  PurchasedCard,
+  PurchasedCardSchema,
+} from '../models/PurchasedCard.model';
 
 @Module({
   imports: [
@@ -27,6 +31,7 @@ import { Folder, FolderSchema } from '../models/Folder.model';
       { name: CardEquipment.name, schema: CardEquipmentSchema },
       { name: CardSummonDigimon.name, schema: CardSummonDigimonSchema },
       { name: CardEnergy.name, schema: CardEnergySchema },
+      { name: PurchasedCard.name, schema: PurchasedCardSchema },
     ]),
   ],
   providers: [UsersService, JwtService, AuthService],

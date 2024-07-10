@@ -6,12 +6,14 @@ const usersData = [
     password: '12345',
     email: 'email@email.com',
     folders: folders,
+    purchasedCards: [],
   },
   {
     username: 'User 2',
     password: '12345',
     email: 'email1@email.com',
     folders: folders2,
+    purchasedCards: [],
   },
 ];
 

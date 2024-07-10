@@ -993,7 +993,9 @@ const digimons = cardsData
   .reverse();
 const equipments = cardsData.filter((x) => x.type === CARD_TYPE.EQUIPMENT);
 const energies = cardsData.filter((x) => x.type === CARD_TYPE.ENERGY);
-const summonDigimons = cardsData.filter((x) => x.type === CARD_TYPE.SUMMON_DIGIMON);
+const summonDigimons = cardsData.filter(
+  (x) => x.type === CARD_TYPE.SUMMON_DIGIMON,
+);
 const orderedCards = digimons
   .concat(equipments)
   .concat(energies)

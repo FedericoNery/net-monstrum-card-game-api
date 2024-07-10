@@ -11,9 +11,9 @@ export class CardEnergy implements Card {
   energyCount: number;
 
   @Field()
-  type: string  = 'Energy';
+  type: string = 'Energy';
 
- static isTypeOf(obj: any): obj is CardEnergy {
+  static isTypeOf(obj: any): obj is CardEnergy {
     return obj.type === 'Energy';
   }
 }

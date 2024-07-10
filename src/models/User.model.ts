@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, HydratedDocument, Schema as MongooseSchema } from 'mongoose';
 import { Folder } from './Folder.model';
+import { PurchasedCard } from './PurchasedCard.model';
 
 export type UserDocument = HydratedDocument<User>;
 
@@ -24,6 +25,17 @@ export class User extends Document {
     ],
   })
   folders: Folder[];
+
+  @Prop({
+    default: [],
+    type: [
+      {
+        quantity: Number,
+        card: { type: MongooseSchema.Types.ObjectId, ref: 'Card' },
+      },
+    ],
+  })
+  purchasedCards: PurchasedCard[];
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
