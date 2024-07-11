@@ -175,7 +175,6 @@ export class UsersService {
       })
       .lean()
       .exec();
-    console.log(user);
 
     const cards = await this.cardModel
       .find()

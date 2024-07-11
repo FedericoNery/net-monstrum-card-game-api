@@ -16,6 +16,9 @@ export class User extends Document {
   @Prop()
   email: string;
 
+  @Prop()
+  role: string;
+
   @Prop({
     type: [
       {
