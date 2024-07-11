@@ -7,6 +7,9 @@ export type CardDocument = HydratedDocument<Card>;
 export class Card extends Document {
   @Prop()
   name: string;
+
+  @Prop()
+  price: number;
 }
 
 export const CardSchema = SchemaFactory.createForClass(Card);
