@@ -54,9 +54,28 @@ export class CreateUserInput {
   email: string;
 }
 
-//TODO : VER SI EL TIPO DE DATO ES EL CORRECTO
+//TODO :: directamente pasar el token del user a futuro
+// agregar parametro de cantidad de cartas que desea
 @InputType()
-export class SelectInitialPackInput {
+export class PurchaseCardInput {
   @Field({ nullable: false })
-  packId: string;
+  userId: string;
+
+  @Field({ nullable: false })
+  cardIdToPurchase: string;
+}
+
+@ObjectType()
+export class PurchaseCardOutput {
+  @Field()
+  successful: boolean;
+
+  @Field()
+  cardNotFound: boolean;
+
+  @Field()
+  insuficientCoins: boolean;
+
+  @Field()
+  reachedMaxCopiesOfCard: boolean;
 }

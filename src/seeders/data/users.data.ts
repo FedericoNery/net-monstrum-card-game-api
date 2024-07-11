@@ -7,6 +7,7 @@ const usersData = [
     email: 'email@email.com',
     folders: folders,
     purchasedCards: [],
+    coins: 100,
   },
   {
     username: 'User 2',
@@ -14,6 +15,7 @@ const usersData = [
     email: 'email1@email.com',
     folders: folders2,
     purchasedCards: [],
+    coins: 100,
   },
 ];
 

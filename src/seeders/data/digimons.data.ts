@@ -17,6 +17,7 @@ const CARD_TYPE = {
 const cardsData = [
   {
     _id: '664e8b7ceb0218b7c40ce0a1',
+    price: 1,
     name: 'Agumon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -27,6 +28,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0a2',
+    price: 1,
     name: 'Greymon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -38,6 +40,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0a3',
+    price: 1,
     name: 'MetalGreymon (Vaccine)',
     color: COLORS.RED,
     attackPoints: 10,
@@ -50,6 +53,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0a4',
+    price: 1,
     name: 'WarGreymon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -61,6 +65,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0a5',
+    price: 1,
     name: 'Gabumon',
     color: COLORS.BLUE,
     attackPoints: 10,
@@ -72,6 +77,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0a6',
+    price: 1,
     name: 'Garurumon',
     color: COLORS.BLUE,
     attackPoints: 10,
@@ -83,6 +89,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0a7',
+    price: 1,
     name: 'WereGarurumon',
     color: COLORS.BLUE,
     attackPoints: 10,
@@ -94,6 +101,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0a8',
+    price: 1,
     name: 'MetalGarurumon',
     color: COLORS.BLUE,
     attackPoints: 10,
@@ -105,6 +113,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0a9',
+    price: 1,
     name: 'Veemon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -116,6 +125,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0aa',
+    price: 1,
     name: 'ExVeemon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -127,6 +137,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0ab',
+    price: 1,
     name: 'Paildramon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -138,6 +149,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0ac',
+    price: 1,
     name: 'Imperialdramon Fighter Mode',
     color: COLORS.RED,
     attackPoints: 10,
@@ -149,6 +161,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0ad',
+    price: 1,
     name: 'Patamon',
     color: COLORS.WHITE,
     attackPoints: 10,
@@ -160,6 +173,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0ae',
+    price: 1,
     name: 'Angemon',
     color: COLORS.WHITE,
     attackPoints: 10,
@@ -171,6 +185,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0af',
+    price: 1,
     name: 'MagnaAngemon',
     color: COLORS.WHITE,
     attackPoints: 10,
@@ -183,6 +198,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0b0',
+    price: 1,
     name: 'Seraphimon',
     color: COLORS.WHITE,
     attackPoints: 10,
@@ -194,6 +210,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0b1',
+    price: 1,
     name: 'Salamon',
     color: COLORS.WHITE,
     attackPoints: 10,
@@ -205,6 +222,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0b2',
+    price: 1,
     name: 'Gatomon',
     color: COLORS.WHITE,
     attackPoints: 10,
@@ -216,6 +234,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0b3',
+    price: 1,
     name: 'Angewomon',
     color: COLORS.WHITE,
     attackPoints: 10,
@@ -227,6 +246,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0b4',
+    price: 1,
     name: 'Ophanimon',
     color: COLORS.WHITE,
     attackPoints: 10,
@@ -238,6 +258,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0b5',
+    price: 1,
     name: 'Biyomon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -249,6 +270,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0b6',
+    price: 1,
     name: 'Birdramon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -260,6 +282,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0b7',
+    price: 1,
     name: 'Garudamon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -271,6 +294,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0b8',
+    price: 1,
     name: 'Phoenixmon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -282,6 +306,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0b9',
+    price: 1,
     name: 'Tentomon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -293,6 +318,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0ba',
+    price: 1,
     name: 'Kabuterimon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -304,6 +330,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0bb',
+    price: 1,
     name: 'MegaKabuterimon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -315,6 +342,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0bc',
+    price: 1,
     name: 'HerculesKabuterimon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -326,6 +354,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0bd',
+    price: 1,
     name: 'Palmon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -337,6 +366,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0be',
+    price: 1,
     name: 'Togemon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -348,6 +378,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0bf',
+    price: 1,
     name: 'Lillymon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -359,6 +390,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0c0',
+    price: 1,
     name: 'Rosemon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -370,6 +402,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0c1',
+    price: 1,
     name: 'Gomamon',
     color: COLORS.BLUE,
     attackPoints: 10,
@@ -381,6 +414,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0c2',
+    price: 1,
     name: 'Ikkakumon',
     color: COLORS.BLUE,
     attackPoints: 10,
@@ -392,6 +426,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0c3',
+    price: 1,
     name: 'Zudomon',
     color: COLORS.BLUE,
     attackPoints: 10,
@@ -403,6 +438,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0c4',
+    price: 1,
     name: 'Vikemon',
     color: COLORS.BLUE,
     attackPoints: 10,
@@ -414,6 +450,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0c5',
+    price: 1,
     name: 'Elecmon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -425,6 +462,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0c6',
+    price: 1,
     name: 'Leomon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -436,6 +474,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0c7',
+    price: 1,
     name: 'IceLeomon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -447,6 +486,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0c8',
+    price: 1,
     name: 'Saberdramon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -458,6 +498,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0c9',
+    price: 1,
     name: 'Renamon',
     color: COLORS.WHITE,
     attackPoints: 10,
@@ -469,6 +510,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0ca',
+    price: 1,
     name: 'Kyubimon',
     color: COLORS.WHITE,
     attackPoints: 10,
@@ -480,6 +522,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0cb',
+    price: 1,
     name: 'Taomon',
     color: COLORS.WHITE,
     attackPoints: 10,
@@ -491,6 +534,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0cc',
+    price: 1,
     name: 'Sakuyamon',
     color: COLORS.WHITE,
     attackPoints: 10,
@@ -502,6 +546,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0cd',
+    price: 1,
     name: 'Terriermon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -513,6 +558,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0ce',
+    price: 1,
     name: 'Gargomon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -525,6 +571,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0cf',
+    price: 1,
     name: 'Rapidmon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -536,6 +583,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0d0',
+    price: 1,
     name: 'MegaGargomon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -547,6 +595,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0d1',
+    price: 1,
     name: 'Guilmon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -558,6 +607,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0d2',
+    price: 1,
     name: 'Growlmon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -569,6 +619,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0d3',
+    price: 1,
     name: 'WarGrowlmon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -581,6 +632,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0d4',
+    price: 1,
     name: 'Gallantmon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -592,6 +644,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0d5',
+    price: 1,
     name: 'Impmon',
     color: 'BLACK',
     attackPoints: 10,
@@ -604,6 +657,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0d6',
+    price: 1,
     name: 'Wizardmon',
     color: 'BLACK',
     attackPoints: 10,
@@ -615,6 +669,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0d7',
+    price: 1,
     name: 'Mistymon',
     color: 'BLACK',
     attackPoints: 10,
@@ -626,6 +681,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0d8',
+    price: 1,
     name: 'Dynasmon',
     color: 'BLACK',
     attackPoints: 10,
@@ -637,6 +693,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0d9',
+    price: 1,
     name: 'Kumamon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -648,6 +705,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0da',
+    price: 1,
     name: 'Grizzlymon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -659,6 +717,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0db',
+    price: 1,
     name: 'Gigasmon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -670,6 +729,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0dc',
+    price: 1,
     name: 'Hisyaryumon',
     color: COLORS.GREEN,
     attackPoints: 10,
@@ -681,6 +741,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0dd',
+    price: 1,
     name: 'Agunimon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -692,6 +753,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0de',
+    price: 1,
     name: 'BurningGreymon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -703,6 +765,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0df',
+    price: 1,
     name: 'Aldamon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -714,6 +777,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0e0',
+    price: 1,
     name: 'EmperorGreymon',
     color: COLORS.RED,
     attackPoints: 10,
@@ -725,6 +789,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0e1',
+    price: 1,
     name: 'Lobomon',
     color: COLORS.BLUE,
     attackPoints: 10,
@@ -736,6 +801,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0e2',
+    price: 1,
     name: 'KendoGarurumon',
     color: COLORS.BLUE,
     attackPoints: 10,
@@ -747,6 +813,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0e3',
+    price: 1,
     name: 'BeoWolfmon',
     color: COLORS.BLUE,
     attackPoints: 10,
@@ -758,6 +825,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0e4',
+    price: 1,
     name: 'Magnagarurumon',
     color: COLORS.BLUE,
     attackPoints: 10,
@@ -769,6 +837,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0e5',
+    price: 1,
     name: 'Armor +10',
     attackPoints: 0,
     healthPoints: 10,
@@ -778,6 +847,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0e6',
+    price: 1,
     name: 'Sword +10',
     attackPoints: 10,
     healthPoints: 0,
@@ -787,6 +857,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0e7',
+    price: 1,
     name: 'Armor 2x +10',
     attackPoints: 0,
     healthPoints: 10,
@@ -796,6 +867,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0e8',
+    price: 1,
     name: 'Armor 3x +10',
     attackPoints: 0,
     healthPoints: 10,
@@ -805,6 +877,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0e9',
+    price: 1,
     name: 'Armor 4x +10',
     attackPoints: 0,
     healthPoints: 10,
@@ -814,6 +887,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0ea',
+    price: 1,
     name: 'Sword 2x +10',
     attackPoints: 10,
     healthPoints: 0,
@@ -823,6 +897,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0eb',
+    price: 1,
     name: 'Sword 3x +10',
     attackPoints: 10,
     healthPoints: 0,
@@ -832,6 +907,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0ec',
+    price: 1,
     name: 'Sword 4x +10',
     attackPoints: 10,
     healthPoints: 0,
@@ -841,6 +917,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0ed',
+    price: 1,
     name: 'Aura',
     attackPoints: 10,
     healthPoints: 10,
@@ -850,6 +927,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0ee',
+    price: 1,
     name: 'Red Energy +1',
     color: COLORS.RED,
     energyCount: 1,
@@ -857,6 +935,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0ef',
+    price: 1,
     name: 'Green Energy +1',
     color: COLORS.GREEN,
     energyCount: 1,
@@ -864,6 +943,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f0',
+    price: 1,
     name: 'Black Energy +1',
     color: 'BLACK',
     energyCount: 1,
@@ -871,6 +951,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f1',
+    price: 1,
     name: 'Blue Energy +1',
     color: COLORS.BLUE,
     energyCount: 1,
@@ -878,6 +959,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f2',
+    price: 1,
     name: 'White Energy +1',
     color: COLORS.WHITE,
     energyCount: 1,
@@ -885,6 +967,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f3',
+    price: 1,
     name: 'Brown Energy +1',
     color: 'BROWN',
     energyCount: 1,
@@ -892,6 +975,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f4',
+    price: 1,
     name: 'Red Energy -1',
     color: COLORS.RED,
     energyCount: -1,
@@ -899,6 +983,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f5',
+    price: 1,
     name: 'Green Energy -1',
     color: COLORS.GREEN,
     energyCount: -1,
@@ -906,6 +991,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f6',
+    price: 1,
     name: 'Black Energy -1',
     color: 'BLACK',
     energyCount: -1,
@@ -913,6 +999,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f7',
+    price: 1,
     name: 'Blue Energy -1',
     color: COLORS.BLUE,
     energyCount: -1,
@@ -920,6 +1007,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f8',
+    price: 1,
     name: 'White Energy -1',
     color: COLORS.WHITE,
     energyCount: -1,
@@ -927,6 +1015,7 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0f9',
+    price: 1,
     name: 'Brown Energy -1',
     color: 'BROWN',
     energyCount: -1,
@@ -934,25 +1023,28 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0fa',
+    price: 1,
     name: 'Summon Gatomon x2',
     digimons: [
       {
         cardDigimonId: '664e8b7ceb0218b7c40ce0fb',
+        price: 1,
         name: 'Gatomon',
         color: COLORS.WHITE,
         attack: 10,
         defense: 10,
-        evolution: { name: 'Angewomon', color: COLORS.WHITE },
+        evolution: { price: 1, name: 'Angewomon', color: COLORS.WHITE },
         type: CARD_TYPE.DIGIMON,
         level: 2,
       },
       {
         cardDigimonId: '664e8b7ceb0218b7c40ce0fc',
+        price: 1,
         name: 'Gatomon',
         color: COLORS.WHITE,
         attack: 10,
         defense: 10,
-        evolution: { name: 'Angewomon', color: COLORS.WHITE },
+        evolution: { price: 1, name: 'Angewomon', color: COLORS.WHITE },
         type: CARD_TYPE.DIGIMON,
         level: 2,
       },
@@ -961,25 +1053,28 @@ const cardsData = [
   },
   {
     _id: '664e8b7ceb0218b7c40ce0fd',
+    price: 1,
     name: 'Summon Angemon x2',
     digimons: [
       {
         cardDigimonId: '664e8b7ceb0218b7c40ce0fe',
+        price: 1,
         name: 'Angemon',
         color: COLORS.WHITE,
         attack: 10,
         defense: 10,
-        evolution: { name: 'MagnaAngemon', color: COLORS.WHITE },
+        evolution: { price: 1, name: 'MagnaAngemon', color: COLORS.WHITE },
         type: CARD_TYPE.DIGIMON,
         level: 2,
       },
       {
         cardDigimonId: '664e8b7ceb0218b7c40ce0ff',
+        price: 1,
         name: 'Angemon',
         color: COLORS.WHITE,
         attack: 10,
         defense: 10,
-        evolution: { name: 'MagnaAngemon', color: COLORS.WHITE },
+        evolution: { price: 1, name: 'MagnaAngemon', color: COLORS.WHITE },
         type: CARD_TYPE.DIGIMON,
         level: 2,
       },

@@ -63,7 +63,20 @@ type Folder {
 
 type Mutation {
   createUser(createUserInput: CreateUserInput!): CreatedUserOutput!
+  purchaseCard(purchaseCardInput: PurchaseCardInput!): PurchaseCardOutput!
   signIn(signInInput: SignInInput!): SignInOutput!
+}
+
+input PurchaseCardInput {
+  cardIdToPurchase: String!
+  userId: String!
+}
+
+type PurchaseCardOutput {
+  cardNotFound: Boolean!
+  insuficientCoins: Boolean!
+  reachedMaxCopiesOfCard: Boolean!
+  successful: Boolean!
 }
 
 type Query {

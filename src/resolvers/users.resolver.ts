@@ -4,6 +4,8 @@ import {
   AvailableCardToPurchase,
   CreateUserInput,
   CreatedUserOutput,
+  PurchaseCardInput,
+  PurchaseCardOutput,
   User,
   UserDetailInformation,
 } from '../schemas/user.schemas';
@@ -50,6 +52,13 @@ export class UsersResolver {
     console.log(availableCardsToPurchase);
     //@ts-ignore
     return availableCardsToPurchase;
+  }
+
+  @Mutation(() => PurchaseCardOutput)
+  async purchaseCard(
+    @Args('purchaseCardInput') purchaseCardInput: PurchaseCardInput,
+  ): Promise<PurchaseCardOutput> {
+    return await this.usersService.purchaseCard(purchaseCardInput);
   }
 
   /*  @UseGuards(AuthGuard)

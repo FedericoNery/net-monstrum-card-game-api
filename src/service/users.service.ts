@@ -4,12 +4,18 @@ import { Model } from 'mongoose';
 import { CreateUserDto } from '../dto/CreateUser.dto';
 import { CardDigimonDocument } from '../models/CardDigimon.model';
 import { User, UserDocument } from '../models/User.model';
-import { UserDetailInformation } from '../schemas/user.schemas';
+import {
+  PurchaseCardInput,
+  UserDetailInformation,
+} from '../schemas/user.schemas';
 import { encrypt } from '../utils/encryptation';
 import { Folder, FolderDocument } from '../models/Folder.model';
 import { CARD_TYPE, defaultFolders } from './constants';
 import { Card, CardDocument } from '../models/Card.model';
-import { PurchasedCard } from '../models/PurchasedCard.model';
+import {
+  PurchasedCard,
+  PurchasedCardDocument,
+} from '../models/PurchasedCard.model';
 
 interface CreatedUserOutputDto {
   id: string;
@@ -22,6 +28,8 @@ export class UsersService {
     @InjectModel(User.name) private userModel: Model<UserDocument>,
     @InjectModel(Folder.name) private folderModel: Model<FolderDocument>,
     @InjectModel(Card.name) private cardModel: Model<CardDocument>,
+    @InjectModel(PurchasedCard.name)
+    private purchasedCardModel: Model<PurchasedCardDocument>,
   ) {}
 
   async create(createUserDto: CreateUserDto): Promise<CreatedUserOutputDto> {
@@ -192,12 +200,89 @@ export class UsersService {
     purchasedCards: PurchasedCard[],
   ) {
     const cardSearched = purchasedCards.filter(
-      (card) => card._id === cardId && card.quantity < 4,
+      (card) => card._id.toString() !== cardId,
     );
     if (cardSearched.length === 0) {
       return 4;
     }
 
     return 4 - cardSearched[0].quantity;
+  }
+
+  async purchaseCard(purchaseCardInput: PurchaseCardInput) {
+    const user = await this.findById(purchaseCardInput.userId);
+    const card = await this.cardModel
+      .findById(purchaseCardInput.cardIdToPurchase)
+      .populate({
+        path: 'evolution',
+        model: 'CardDigimon',
+        options: { strictPopulate: false },
+      })
+      .lean()
+      .exec();
+
+    if (card === null) {
+      return {
+        successful: false,
+        cardNotFound: true,
+        insuficientCoins: false,
+        reachedMaxCopiesOfCard: false,
+      };
+    }
+
+    const availableQuantityToPurchase = this.getQuantityOfPurchasedCards(
+      purchaseCardInput.cardIdToPurchase,
+      user.purchasedCards,
+    );
+
+    const purchasedCardEntity = user.purchasedCards.filter(
+      (purchasedCardEntity) =>
+        purchasedCardEntity.card._id !== purchaseCardInput.cardIdToPurchase,
+    );
+
+    if (availableQuantityToPurchase === 0 || user.coins < card.price) {
+      return {
+        successful: false,
+        cardNotFound: false,
+        insuficientCoins: user.coins < card.price,
+        reachedMaxCopiesOfCard: availableQuantityToPurchase === 0,
+      };
+    }
+
+    user.coins = user.coins - card.price;
+
+    if (purchasedCardEntity.length === 0) {
+      user.purchasedCards.push(
+        new this.purchasedCardModel({
+          quantity: 1,
+          card: card,
+        }),
+      );
+    } else {
+      const indexOfPurchasedCard = user.purchasedCards
+        .map((x) => x.card._id.toString())
+        .indexOf(purchaseCardInput.cardIdToPurchase);
+
+      user.purchasedCards[indexOfPurchasedCard].quantity =
+        user.purchasedCards[indexOfPurchasedCard].quantity + 1;
+    }
+
+    try {
+      user.save();
+
+      return {
+        successful: true,
+        cardNotFound: false,
+        insuficientCoins: false,
+        reachedMaxCopiesOfCard: false,
+      };
+    } catch (e) {
+      return {
+        successful: false,
+        cardNotFound: false,
+        insuficientCoins: false,
+        reachedMaxCopiesOfCard: false,
+      };
+    }
   }
 }

@@ -36,6 +36,9 @@ export class User extends Document {
     ],
   })
   purchasedCards: PurchasedCard[];
+
+  @Prop()
+  coins: number;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
