@@ -18,7 +18,6 @@ export class CardsSeederService implements OnModuleInit {
   }
 
   async onModuleInit() {
-    console.log("HOLA");
     this.cardModel.discriminator('Energy', CardEnergySchema);
     this.cardModel.discriminator('Digimon', CardDigimonSchema);
     this.cardModel.discriminator('Equipment', CardEquipmentSchema);

@@ -15,7 +15,9 @@ import { CardEquipment } from './schemas/card_equipment.schema';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({}),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     MongooseModule.forRoot('mongodb://localhost:27017/nmcg-db'),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,

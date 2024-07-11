@@ -6,14 +6,33 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
-import { jwtConstants } from './constants';
 import { GqlExecutionContext } from '@nestjs/graphql';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private jwtService: JwtService) {}
+  constructor(
+    private jwtService: JwtService,
+    private configService: ConfigService,
+  ) {}
+
+  private getJWTSecretKey(): string {
+    const value = this.configService.get<string>('JWT_SECRET');
+    return value;
+  }
+
+  private getEnableAuthEndpointsValidation(): boolean {
+    const value = this.configService.get<string>(
+      'ENABLE_AUTH_ENDPOINTS_VALIDATION',
+    );
+    return value === 'true';
+  }
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
+    if (!this.getEnableAuthEndpointsValidation()) {
+      return true;
+    }
+
     const ctx = GqlExecutionContext.create(context);
     const request = ctx.getContext().req;
     const token = this.extractTokenFromHeader(request);
@@ -22,13 +41,11 @@ export class AuthGuard implements CanActivate {
     }
     try {
       const payload = await this.jwtService.verifyAsync(token, {
-        secret: jwtConstants.secret,
+        secret: this.getJWTSecretKey(),
       });
       // 💡 We're assigning the payload to the request object here
       // so that we can access it in our route handlers
       request['user'] = payload;
-      console.log(request['user'])
-      console.log(payload)
     } catch {
       throw new UnauthorizedException();
     }

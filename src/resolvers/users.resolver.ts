@@ -10,17 +10,21 @@ import {
   UserDetailInformation,
 } from '../schemas/user.schemas';
 import { UsersService } from '../service/users.service';
+import { AuthGuard } from '../auth/auth.guard';
+import { UseGuards } from '@nestjs/common';
 
 @Resolver()
 export class UsersResolver {
   constructor(private usersService: UsersService) {}
 
+  @UseGuards(AuthGuard)
   @Query(() => [User])
   async users() {
     const users = await this.usersService.findAll();
     return users;
   }
 
+  @UseGuards(AuthGuard)
   @Query(() => UserDetailInformation)
   async getUserById(
     @Args('id', { type: () => String }) id: string,
@@ -29,6 +33,7 @@ export class UsersResolver {
     return user;
   }
 
+  @UseGuards(AuthGuard)
   @Mutation((returns) => CreatedUserOutput)
   async createUser(
     @Args('createUserInput') createUserInput: CreateUserInput,
@@ -42,6 +47,7 @@ export class UsersResolver {
     return this.usersService.create(createUserDto);
   }
 
+  @UseGuards(AuthGuard)
   @Query(() => [AvailableCardToPurchase])
   async getAvailableCardsToPurchase(
     @Args('userId', { type: () => String }) userId: string,
@@ -49,11 +55,11 @@ export class UsersResolver {
     //@ts-ignore
     const availableCardsToPurchase =
       this.usersService.getAvailableCardsToPurchase(userId);
-    console.log(availableCardsToPurchase);
     //@ts-ignore
     return availableCardsToPurchase;
   }
 
+  @UseGuards(AuthGuard)
   @Mutation(() => PurchaseCardOutput)
   async purchaseCard(
     @Args('purchaseCardInput') purchaseCardInput: PurchaseCardInput,
