@@ -6,7 +6,6 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
-import { jwtConstants } from './constants';
 import { GqlExecutionContext } from '@nestjs/graphql';
 import { ConfigService } from '@nestjs/config';
 
@@ -22,7 +21,18 @@ export class AuthGuard implements CanActivate {
     return value;
   }
 
+  private getEnableAuthEndpointsValidation(): boolean {
+    const value = this.configService.get<string>(
+      'ENABLE_AUTH_ENDPOINTS_VALIDATION',
+    );
+    return value === 'true';
+  }
+
   async canActivate(context: ExecutionContext): Promise<boolean> {
+    if (!this.getEnableAuthEndpointsValidation()) {
+      return true;
+    }
+
     const ctx = GqlExecutionContext.create(context);
     const request = ctx.getContext().req;
     const token = this.extractTokenFromHeader(request);

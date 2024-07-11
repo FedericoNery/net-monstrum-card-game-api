@@ -3,7 +3,7 @@ import { JwtService } from '@nestjs/jwt';
 import { SignInDto } from '../dto/SignIn.dto';
 import { UsersService } from '../service/users.service';
 import * as bcrypt from 'bcrypt';
-import { expiresIn, jwtConstants } from './constants';
+import { expiresIn } from './constants';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()
