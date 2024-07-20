@@ -65,6 +65,7 @@ type Mutation {
   createUser(createUserInput: CreateUserInput!): CreatedUserOutput!
   purchaseCard(purchaseCardInput: PurchaseCardInput!): PurchaseCardOutput!
   signIn(signInInput: SignInInput!): SignInOutput!
+  updateFolder(updateFolderInput: UpdateFolderInput!): UpdatedFolderOutput!
 }
 
 input PurchaseCardInput {
@@ -93,6 +94,19 @@ input SignInInput {
 
 type SignInOutput {
   access_token: String!
+}
+
+input UpdateFolderInput {
+  cardIds: [String!]!
+  folderId: String!
+  userId: String!
+}
+
+type UpdatedFolderOutput {
+  cardNotExist: Boolean!
+  folderNotFound: Boolean!
+  reachedMaxCopiesOfCard: Boolean!
+  successful: Boolean!
 }
 
 type User {

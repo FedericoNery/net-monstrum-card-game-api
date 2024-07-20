@@ -66,24 +66,4 @@ export class UsersResolver {
   ): Promise<PurchaseCardOutput> {
     return await this.usersService.purchaseCard(purchaseCardInput);
   }
-
-  /*  @UseGuards(AuthGuard)
-  @Mutation(() => String)
-  async selectInitialPack(
-    @Context() context,
-    @Args('selectInitialPackInput')
-    selectInitialPackInput: SelectInitialPackInput,
-  ) {
-    const { req } = context;
-
-    if (req.user) {
-      const { sub } = req.user;
-      this.selectInitialCommandHandler.execute({
-        packId: selectInitialPackInput.packId,
-        userId: sub,
-      });
-      return 'User asigned pack';
-    }
-    return 'Session not available';
-  } */
 }
