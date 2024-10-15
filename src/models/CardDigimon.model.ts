@@ -9,13 +9,13 @@ export class CardDigimon extends Card {
   @Prop()
   color: string;
 
-  @Prop()
+  @Prop({ required: true })
   attackPoints: number;
 
-  @Prop()
+  @Prop({ required: true })
   healthPoints: number;
 
-  @Prop()
+  @Prop({ required: true })
   energyCount: number;
 
   @Prop()

@@ -21,6 +21,7 @@ import {
   PurchasedCardSchema,
 } from '../models/PurchasedCard.model';
 import { FoldersService } from './folders.service';
+import { CardsService } from './cards.service';
 
 @Module({
   imports: [
@@ -35,7 +36,19 @@ import { FoldersService } from './folders.service';
       { name: PurchasedCard.name, schema: PurchasedCardSchema },
     ]),
   ],
-  providers: [UsersService, JwtService, AuthService, FoldersService],
-  exports: [UsersService, JwtService, AuthService, FoldersService],
+  providers: [
+    UsersService,
+    JwtService,
+    AuthService,
+    FoldersService,
+    CardsService,
+  ],
+  exports: [
+    UsersService,
+    JwtService,
+    AuthService,
+    FoldersService,
+    CardsService,
+  ],
 })
 export class ServicesModule {}

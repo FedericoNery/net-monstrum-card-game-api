@@ -90,8 +90,33 @@ export class UsersService {
       folders: user.folders.map((folder) => ({
         name: folder.name,
         cards: folder.cards.map((card) => this.mapCard(card)),
+        colors: this.countColorsByType(
+          folder.cards.map((card) => this.mapCard(card)),
+        ),
       })),
     };
+  }
+
+  private countColorsByType(objects) {
+    const colorCounts = {
+      red: 0,
+      green: 0,
+      black: 0,
+      white: 0,
+      blue: 0,
+    };
+
+    objects.forEach(obj => {
+      if (obj.type === 'Digimon' || obj.type === 'Energy') {
+        const color = obj.color?.toLowerCase();
+
+        if (colorCounts.hasOwnProperty(color)) {
+          colorCounts[color]++;
+        }
+      }
+    });
+
+    return colorCounts;
   }
 
   private mapCard(card) {

@@ -26,6 +26,7 @@ export class AppModule implements NestModule {
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors();
   //Hacerlo Feature Flag - ver si conviene meterlo en el AppModule directamente
   app.use(
     session({
