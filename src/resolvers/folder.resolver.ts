@@ -1,7 +1,9 @@
 import { UseGuards } from '@nestjs/common';
-import { Args, Mutation, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { AuthGuard } from '../auth/auth.guard';
 import {
+  Folder,
+  GetFolderByIdInput,
   UpdatedFolderOutput,
   UpdateFolderInput,
 } from '../schemas/folder.schema';
@@ -24,8 +26,6 @@ export class FoldersResolver {
     const folderToUpdate = user.folders.filter(
       (x) => x._id.toString() === updateFolderInput.folderId,
     );
-    console.log("FOLDER TO UPDATE")
-    console.log(folderToUpdate.length)
     const hasDuplicatedCards = this.checkForDuplicates(
       updateFolderInput.cardIds,
     );
@@ -39,11 +39,12 @@ export class FoldersResolver {
       };
     }
 
-    const allIdsExists = await this.foldersService.checkAllIdsExist(
-      updateFolderInput.cardIds,
-    );
+    const allIdsExists = await this.foldersService.checkAllIdsExist([
+      ...new Set(updateFolderInput.cardIds),
+    ]);
 
     if (!allIdsExists) {
+      console.log("ENTRO");
       return {
         successful: false,
         folderNotFound: folderToUpdate.length !== 1,
@@ -64,7 +65,7 @@ export class FoldersResolver {
       return {
         successful: true,
         folderNotFound: folderToUpdate.length !== 1,
-        cardNotExist: allIdsExists,
+        cardNotExist: false,
         reachedMaxCopiesOfCard: hasDuplicatedCards,
       };
     } catch (error) {
@@ -93,5 +94,17 @@ export class FoldersResolver {
     }
 
     return false;
+  }
+
+  @UseGuards(AuthGuard)
+  @Query(() => Folder)
+  async getFolderById(
+    @Args('getFolderByIdInput') getFolderByIdInput: GetFolderByIdInput,
+  ) {
+    const folder = await this.foldersService.getFolderById(
+      getFolderByIdInput.userId,
+      getFolderByIdInput.folderId,
+    );
+    return folder;
   }
 }

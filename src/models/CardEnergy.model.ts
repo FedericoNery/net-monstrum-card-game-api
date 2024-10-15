@@ -9,7 +9,7 @@ export class CardEnergy extends Card {
   @Prop()
   color: string;
 
-  @Prop()
+  @Prop({ required: true })
   energyCount: number;
 }
 

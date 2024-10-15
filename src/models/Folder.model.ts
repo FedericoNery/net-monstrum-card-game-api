@@ -7,6 +7,9 @@ export type FolderDocument = HydratedDocument<Folder>;
 @Schema()
 export class Folder extends Document {
   @Prop()
+  id: string;
+
+  @Prop()
   name: string;
 
   @Prop({ type: [{ type: MongooseSchema.Types.ObjectId, ref: 'Card' }] })
