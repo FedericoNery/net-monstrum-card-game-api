@@ -44,9 +44,10 @@ export class UsersResolver {
       email: createUserInput.email,
     };
 
-    return this.usersService.create(createUserDto);
+    return await this.usersService.create(createUserDto);
   }
 
+  //TODO ESTO DEBERIA DEVOLVER LAS MONEDAS DISPONIBLES DEL USUARIO
   @UseGuards(AuthGuard)
   @Query(() => [AvailableCardToPurchase])
   async getAvailableCardsToPurchase(
@@ -54,7 +55,7 @@ export class UsersResolver {
   ): Promise<AvailableCardToPurchase[]> {
     //@ts-ignore
     const availableCardsToPurchase =
-      this.usersService.getAvailableCardsToPurchase(userId);
+      await this.usersService.getAvailableCardsToPurchase(userId);
     //@ts-ignore
     return availableCardsToPurchase;
   }

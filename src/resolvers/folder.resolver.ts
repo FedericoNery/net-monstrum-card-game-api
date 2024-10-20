@@ -44,7 +44,6 @@ export class FoldersResolver {
     ]);
 
     if (!allIdsExists) {
-      console.log("ENTRO");
       return {
         successful: false,
         folderNotFound: folderToUpdate.length !== 1,
