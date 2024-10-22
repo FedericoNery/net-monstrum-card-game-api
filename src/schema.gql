@@ -114,7 +114,8 @@ type Query {
   cards: [Card!]!
   getAvailableCardsToPurchase(userId: String!): [AvailableCardToPurchase!]!
   getFolderById(getFolderByIdInput: GetFolderByIdInput!): Folder!
-  getUserById(id: String!): UserDetailInformation!
+  getUserByEmail(email: String!): UserDetailInformation
+  getUserById(id: String!): UserDetailInformation
   sayHello: String!
   users: [User!]!
 }
@@ -147,7 +148,10 @@ type User {
 }
 
 type UserDetailInformation {
+  coins: Float!
   email: String!
   folders: [Folder!]!
+  id: String!
+  role: String!
   username: String!
 }

@@ -14,10 +14,19 @@ export class User {
 @ObjectType()
 export class UserDetailInformation {
   @Field({ nullable: false })
+  id: string;
+
+  @Field({ nullable: false })
   username: string;
 
   @Field({ nullable: false })
   email: string;
+
+  @Field({ nullable: false })
+  coins: number;
+
+  @Field({ nullable: false })
+  role: string;
 
   @Field((type) => [Folder])
   folders: Folder[];
