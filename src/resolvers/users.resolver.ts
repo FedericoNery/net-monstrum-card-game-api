@@ -25,11 +25,20 @@ export class UsersResolver {
   }
 
   @UseGuards(AuthGuard)
-  @Query(() => UserDetailInformation)
+  @Query(() => UserDetailInformation, { nullable: true })
   async getUserById(
     @Args('id', { type: () => String }) id: string,
   ): Promise<UserDetailInformation> {
     const user = await this.usersService.findByIdWithAggregations(id);
+    return user;
+  }
+
+  @UseGuards(AuthGuard)
+  @Query(() => UserDetailInformation, { nullable: true })
+  async getUserByEmail(
+    @Args('email', { type: () => String }) email: string,
+  ): Promise<UserDetailInformation> {
+    const user = await this.usersService.findByEmailWithAggregations(email);
     return user;
   }
 

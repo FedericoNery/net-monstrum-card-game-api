@@ -82,12 +82,40 @@ export class UsersService {
     return this.mapUserToDTO(user);
   }
 
+  async findByEmailWithAggregations(
+    email: string,
+  ): Promise<UserDetailInformation> {
+    try {
+      const user = await this.userModel
+        .findOne({ email })
+        .populate({
+          path: 'folders.cards',
+          model: 'Card',
+          populate: {
+            path: 'evolution',
+            model: 'CardDigimon',
+            options: { strictPopulate: false },
+          },
+          options: { strictPopulate: false },
+        })
+        .lean()
+        .exec();
+      return this.mapUserToDTO(user);
+    } catch (error) {
+      return null;
+    }
+  }
+  //SACAR ESTA COSA NO HACE FALTA MAPEAR
   private mapUserToDTO(user: User): UserDetailInformation {
     return {
+      id: user._id.toString(),
       username: user.username,
       email: user.email,
+      coins: user.coins,
+      role: user.role,
       //@ts-ignore
       folders: user.folders.map((folder) => ({
+        id: folder._id.toString(),
         name: folder.name,
         cards: folder.cards.map((card) => this.mapCard(card)),
         colors: this.countColorsByType(
