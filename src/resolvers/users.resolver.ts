@@ -2,7 +2,9 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CreateUserDto } from '../dto/CreateUser.dto';
 import {
   AvailableCardToPurchase,
+  CreateUserByEmailInput,
   CreateUserInput,
+  CreatedUserByEmailOutput,
   CreatedUserOutput,
   PurchaseCardInput,
   PurchaseCardOutput,
@@ -54,6 +56,17 @@ export class UsersResolver {
     };
 
     return await this.usersService.create(createUserDto);
+  }
+
+  @UseGuards(AuthGuard)
+  @Mutation((returns) => CreatedUserByEmailOutput)
+  async createUserByEmail(
+    @Args('createUserInput') createUserInput: CreateUserByEmailInput,
+  ): Promise<CreatedUserByEmailOutput> {
+    return await this.usersService.createByEmailAndUsername(
+      createUserInput.email,
+      createUserInput.username,
+    );
   }
 
   //TODO ESTO DEBERIA DEVOLVER LAS MONEDAS DISPONIBLES DEL USUARIO

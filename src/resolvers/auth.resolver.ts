@@ -11,4 +11,9 @@ export class AuthResolver {
     const { username, password } = signInInput;
     return this.authService.signIn(username, password);
   }
+
+  @Mutation(() => SignInOutput)
+  async signInWithEmail(@Args('email', { type: () => String }) email: string) {
+    return this.authService.signInWithEmail(email);
+  }
 }
