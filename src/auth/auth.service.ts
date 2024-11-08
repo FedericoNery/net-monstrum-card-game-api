@@ -45,4 +45,27 @@ export class AuthService {
     throw new Error('Not found user');
     //throw new NotFoundException();
   }
+
+  async signInWithEmail(email: string) {
+    const user = await this.usersService.findByEmailWithAggregations(email);
+
+    if (user) {
+      const payload = {
+        sub: user.id.toString(),
+        id: user.id.toString(),
+        username: user.username,
+        email: user.email,
+        role: user.role,
+      };
+
+      return {
+        access_token: await this.jwtService.signAsync(payload, {
+          secret: this.getJWTSecretKey(),
+          expiresIn: expiresIn,
+        }),
+      };
+    } else {
+      throw new Error('Not found user');
+    }
+  }
 }

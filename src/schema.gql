@@ -68,10 +68,27 @@ type Colors {
   white: Float!
 }
 
+input CreateUserByEmailInput {
+  email: String!
+  username: String!
+}
+
 input CreateUserInput {
   email: String!
   password: String!
   username: String!
+}
+
+type CreatedUserByEmail {
+  id: String!
+  username: String!
+}
+
+type CreatedUserByEmailOutput {
+  hasError: Boolean!
+  result: CreatedUserByEmail
+  successfull: Boolean!
+  userAlreadyExist: Boolean!
 }
 
 type CreatedUserOutput {
@@ -93,8 +110,10 @@ input GetFolderByIdInput {
 
 type Mutation {
   createUser(createUserInput: CreateUserInput!): CreatedUserOutput!
+  createUserByEmail(createUserInput: CreateUserByEmailInput!): CreatedUserByEmailOutput!
   purchaseCard(purchaseCardInput: PurchaseCardInput!): PurchaseCardOutput!
   signIn(signInInput: SignInInput!): SignInOutput!
+  signInWithEmail(email: String!): SignInOutput!
   updateFolder(updateFolderInput: UpdateFolderInput!): UpdatedFolderOutput!
 }
 

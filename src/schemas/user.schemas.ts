@@ -42,6 +42,30 @@ export class CreatedUserOutput {
 }
 
 @ObjectType()
+class CreatedUserByEmail {
+  @Field({ nullable: false })
+  id: string;
+
+  @Field({ nullable: false })
+  username: string;
+}
+
+@ObjectType()
+export class CreatedUserByEmailOutput {
+  @Field({ nullable: true })
+  result: CreatedUserByEmail;
+
+  @Field({ nullable: false })
+  successfull: boolean;
+
+  @Field({ nullable: false })
+  userAlreadyExist: boolean;
+
+  @Field({ nullable: false })
+  hasError: boolean;
+}
+
+@ObjectType()
 export class AvailableCardToPurchase {
   @Field({ nullable: false })
   quantity: number;
@@ -50,7 +74,6 @@ export class AvailableCardToPurchase {
   card: Card;
 }
 
-
 @InputType()
 export class CreateUserInput {
   @Field({ nullable: false })
@@ -58,6 +81,15 @@ export class CreateUserInput {
 
   @Field({ nullable: false })
   password: string;
+
+  @Field({ nullable: false })
+  email: string;
+}
+
+@InputType()
+export class CreateUserByEmailInput {
+  @Field({ nullable: false })
+  username: string;
 
   @Field({ nullable: false })
   email: string;

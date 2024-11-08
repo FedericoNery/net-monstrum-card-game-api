@@ -5,6 +5,7 @@ import { CreateUserDto } from '../dto/CreateUser.dto';
 import { CardDigimonDocument } from '../models/CardDigimon.model';
 import { User, UserDocument } from '../models/User.model';
 import {
+  CreatedUserByEmailOutput,
   PurchaseCardInput,
   UserDetailInformation,
 } from '../schemas/user.schemas';
@@ -50,6 +51,59 @@ export class UsersService {
       id: createdUser._id,
       username: createdUser.username,
     } as CreatedUserOutputDto;
+  }
+
+  async createByEmailAndUsername(
+    email: string,
+    username: string,
+  ): Promise<CreatedUserByEmailOutput> {
+    const createdUser = new this.userModel();
+    createdUser.email = email;
+    createdUser.password = '12345'; //TODO :: NO HACE FALTA PASSWORD LOGUEA CONTRA GOOGLE
+    createdUser.username = username;
+    createdUser.password = await encrypt(createdUser.password);
+    createdUser.role = 'player';
+    createdUser.coins = 100;
+    createdUser.folders = [
+      new this.folderModel(defaultFolders[0]),
+      new this.folderModel(defaultFolders[1]),
+      new this.folderModel(defaultFolders[2]),
+    ];
+
+    const userSearched = await this.userModel
+      .findOne({
+        $or: [{ email }, { username }],
+      })
+      .exec();
+
+    if (userSearched) {
+      return {
+        result: null,
+        successfull: false,
+        userAlreadyExist: true,
+        hasError: false,
+      };
+    }
+
+    try {
+      createdUser.save();
+      return {
+        result: {
+          id: createdUser._id,
+          username: createdUser.username,
+        },
+        successfull: true,
+        hasError: false,
+        userAlreadyExist: false,
+      } as CreatedUserByEmailOutput;
+    } catch (error) {
+      return {
+        result: null,
+        hasError: true,
+        userAlreadyExist: false,
+        successfull: false,
+      };
+    }
   }
 
   async findAll(): Promise<User[]> {
