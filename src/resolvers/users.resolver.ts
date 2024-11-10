@@ -66,6 +66,7 @@ export class UsersResolver {
     return await this.usersService.createByEmailAndUsername(
       createUserInput.email,
       createUserInput.username,
+      createUserInput.avatarUrl,
     );
   }
 

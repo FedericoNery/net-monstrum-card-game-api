@@ -15,6 +15,7 @@ const usersData = [
       { card: '664e8b7ceb0218b7c40ce0a4', quantity: 4 },
     ],
     role: 'player',
+    avatarUrl: 'taichi.png',
     coins: 100,
   },
   {
@@ -29,6 +30,7 @@ const usersData = [
       { card: '664e8b7ceb0218b7c40ce0a8', quantity: 4 },
     ],
     role: 'admin',
+    avatarUrl: 'yamato.png',
     coins: 100,
   },
 ];
