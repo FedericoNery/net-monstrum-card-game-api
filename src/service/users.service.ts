@@ -56,6 +56,7 @@ export class UsersService {
   async createByEmailAndUsername(
     email: string,
     username: string,
+    avatarUrl: string,
   ): Promise<CreatedUserByEmailOutput> {
     const createdUser = new this.userModel();
     createdUser.email = email;
@@ -64,6 +65,7 @@ export class UsersService {
     createdUser.password = await encrypt(createdUser.password);
     createdUser.role = 'player';
     createdUser.coins = 100;
+    createdUser.avatarUrl = avatarUrl;
     createdUser.folders = [
       new this.folderModel(defaultFolders[0]),
       new this.folderModel(defaultFolders[1]),
@@ -167,6 +169,7 @@ export class UsersService {
       email: user.email,
       coins: user.coins,
       role: user.role,
+      avatarUrl: user.avatarUrl,
       //@ts-ignore
       folders: user.folders.map((folder) => ({
         id: folder._id.toString(),

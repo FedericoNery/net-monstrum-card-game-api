@@ -28,6 +28,9 @@ export class UserDetailInformation {
   @Field({ nullable: false })
   role: string;
 
+  @Field({ nullable: false })
+  avatarUrl: string;
+
   @Field((type) => [Folder])
   folders: Folder[];
 }
@@ -93,6 +96,9 @@ export class CreateUserByEmailInput {
 
   @Field({ nullable: false })
   email: string;
+
+  @Field({ nullable: false })
+  avatarUrl: string;
 }
 
 //TODO :: directamente pasar el token del user a futuro

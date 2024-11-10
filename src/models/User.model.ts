@@ -19,6 +19,9 @@ export class User extends Document {
   @Prop()
   role: string;
 
+  @Prop()
+  avatarUrl: string;
+
   @Prop({
     type: [
       {
