@@ -77,6 +77,15 @@ export class AvailableCardToPurchase {
   card: Card;
 }
 
+@ObjectType()
+export class AvailableCardToPutInDeck {
+  @Field({ nullable: false })
+  quantity: number;
+
+  @Field(() => Card)
+  card: Card;
+}
+
 @InputType()
 export class CreateUserInput {
   @Field({ nullable: false })
