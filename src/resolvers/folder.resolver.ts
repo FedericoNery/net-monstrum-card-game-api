@@ -9,6 +9,7 @@ import {
 } from '../schemas/folder.schema';
 import { FoldersService } from '../service/folders.service';
 import { UsersService } from '../service/users.service';
+import { AvailableCardToPutInDeck } from '../schemas/user.schemas';
 
 @Resolver()
 export class FoldersResolver {
@@ -105,5 +106,18 @@ export class FoldersResolver {
       getFolderByIdInput.folderId,
     );
     return folder;
+  }
+
+  //TODO ESTO DEBERIA DEVOLVER LAS MONEDAS DISPONIBLES DEL USUARIO
+  @UseGuards(AuthGuard)
+  @Query(() => [AvailableCardToPutInDeck])
+  async getAvailableCardsToPutInDeck(
+    @Args('userId', { type: () => String }) userId: string,
+  ): Promise<AvailableCardToPutInDeck[]> {
+    const availableCardsToPutInDeck =
+      await this.foldersService.getAvailableCardsToPutInDeck(userId);
+
+    //@ts-ignore
+    return availableCardsToPutInDeck;
   }
 }
