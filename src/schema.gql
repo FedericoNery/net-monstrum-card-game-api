@@ -65,6 +65,10 @@ type CardSummonDigimon implements Card {
   type: String!
 }
 
+type Coins {
+  coins: Float!
+}
+
 type Colors {
   black: Float!
   blue: Float!
@@ -139,6 +143,7 @@ type Query {
   cards: [Card!]!
   getAvailableCardsToPurchase(userId: String!): [AvailableCardToPurchase!]!
   getAvailableCardsToPutInDeck(userId: String!): [AvailableCardToPutInDeck!]!
+  getCoinsByEmail(email: String!): Coins!
   getFolderById(getFolderByIdInput: GetFolderByIdInput!): Folder!
   getUserByEmail(email: String!): UserDetailInformation
   getUserById(id: String!): UserDetailInformation
