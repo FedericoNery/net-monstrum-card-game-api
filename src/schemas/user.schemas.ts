@@ -135,3 +135,9 @@ export class PurchaseCardOutput {
   @Field()
   reachedMaxCopiesOfCard: boolean;
 }
+
+@ObjectType()
+export class Coins {
+  @Field()
+  coins: number;
+}

@@ -2,6 +2,7 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CreateUserDto } from '../dto/CreateUser.dto';
 import {
   AvailableCardToPurchase,
+  Coins,
   CreateUserByEmailInput,
   CreateUserInput,
   CreatedUserByEmailOutput,
@@ -89,5 +90,14 @@ export class UsersResolver {
     @Args('purchaseCardInput') purchaseCardInput: PurchaseCardInput,
   ): Promise<PurchaseCardOutput> {
     return await this.usersService.purchaseCard(purchaseCardInput);
+  }
+
+  @UseGuards(AuthGuard)
+  @Query(() => Coins, { nullable: false })
+  async getCoinsByEmail(
+    @Args('email', { type: () => String }) email: string,
+  ): Promise<Coins> {
+    const user = await this.usersService.findByEmailWithAggregations(email);
+    return { coins: user.coins };
   }
 }
