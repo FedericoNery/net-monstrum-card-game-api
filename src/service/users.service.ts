@@ -71,6 +71,56 @@ export class UsersService {
       new this.folderModel(defaultFolders[1]),
       new this.folderModel(defaultFolders[2]),
     ];
+    createdUser.purchasedCards = [
+      new this.purchasedCardModel({
+        card: '664e8b7ceb0218b7c40ce0a1',
+        quantity: 4,
+      }),
+      new this.purchasedCardModel({
+        card: '664e8b7ceb0218b7c40ce0a2',
+        quantity: 4,
+      }),
+      new this.purchasedCardModel({
+        card: '664e8b7ceb0218b7c40ce0a3',
+        quantity: 4,
+      }),
+      new this.purchasedCardModel({
+        card: '664e8b7ceb0218b7c40ce0a4',
+        quantity: 4,
+      }),
+      new this.purchasedCardModel({
+        card: '664e8b7ceb0218b7c40ce0a5',
+        quantity: 4,
+      }),
+      new this.purchasedCardModel({
+        card: '664e8b7ceb0218b7c40ce0a6',
+        quantity: 4,
+      }),
+      new this.purchasedCardModel({
+        card: '664e8b7ceb0218b7c40ce0a7',
+        quantity: 4,
+      }),
+      new this.purchasedCardModel({
+        card: '664e8b7ceb0218b7c40ce0a8',
+        quantity: 4,
+      }),
+      new this.purchasedCardModel({
+        card: '664e8b7ceb0218b7c40ce0a9',
+        quantity: 4,
+      }),
+      new this.purchasedCardModel({
+        card: '664e8b7ceb0218b7c40ce0aa',
+        quantity: 4,
+      }),
+      new this.purchasedCardModel({
+        card: '664e8b7ceb0218b7c40ce0ab',
+        quantity: 4,
+      }),
+      new this.purchasedCardModel({
+        card: '664e8b7ceb0218b7c40ce0ac',
+        quantity: 4,
+      }),
+    ];
 
     const userSearched = await this.userModel
       .findOne({
@@ -314,7 +364,6 @@ export class UsersService {
 
     const cardsWithQuantity = cards.map((card: Card) => ({
       card: { ...card, id: card._id },
-      //@ts-ignore
       quantity: this.getQuantityOfPurchasedCards(
         card._id.toString(),
         user.purchasedCards,
