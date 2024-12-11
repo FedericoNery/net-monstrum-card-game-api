@@ -176,11 +176,18 @@ export class UsersService {
       .populate({
         path: 'folders.cards',
         model: 'Card',
-        populate: {
-          path: 'evolution',
-          model: 'CardDigimon',
-          options: { strictPopulate: false },
-        },
+        populate: [
+          {
+            path: 'digimonsCards',
+            model: 'Card',
+            options: { strictPopulate: false },
+          },
+          {
+            path: 'evolution',
+            model: 'CardDigimon',
+            options: { strictPopulate: false },
+          },
+        ],
         options: { strictPopulate: false },
       })
       .lean()
@@ -277,7 +284,7 @@ export class UsersService {
         type: CARD_TYPE.SUMMON_DIGIMON,
         id: card._id,
         name: card.name,
-        digimonsCards: card?.digimonCards,
+        digimonsCards: card?.digimonsCards,
       };
     }
     if (type === CARD_TYPE.EQUIPMENT) {
