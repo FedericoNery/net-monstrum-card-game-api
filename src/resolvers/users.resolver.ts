@@ -46,20 +46,6 @@ export class UsersResolver {
   }
 
   @UseGuards(AuthGuard)
-  @Mutation((returns) => CreatedUserOutput)
-  async createUser(
-    @Args('createUserInput') createUserInput: CreateUserInput,
-  ): Promise<CreatedUserOutput> {
-    const createUserDto: CreateUserDto = {
-      username: createUserInput.username,
-      password: createUserInput.password,
-      email: createUserInput.email,
-    };
-
-    return await this.usersService.create(createUserDto);
-  }
-
-  @UseGuards(AuthGuard)
   @Mutation((returns) => CreatedUserByEmailOutput)
   async createUserByEmail(
     @Args('createUserInput') createUserInput: CreateUserByEmailInput,

@@ -83,12 +83,6 @@ input CreateUserByEmailInput {
   username: String!
 }
 
-input CreateUserInput {
-  email: String!
-  password: String!
-  username: String!
-}
-
 type CreatedUserByEmail {
   id: String!
   username: String!
@@ -99,11 +93,6 @@ type CreatedUserByEmailOutput {
   result: CreatedUserByEmail
   successfull: Boolean!
   userAlreadyExist: Boolean!
-}
-
-type CreatedUserOutput {
-  id: String!
-  username: String!
 }
 
 type Folder {
@@ -119,10 +108,8 @@ input GetFolderByIdInput {
 }
 
 type Mutation {
-  createUser(createUserInput: CreateUserInput!): CreatedUserOutput!
   createUserByEmail(createUserInput: CreateUserByEmailInput!): CreatedUserByEmailOutput!
   purchaseCard(purchaseCardInput: PurchaseCardInput!): PurchaseCardOutput!
-  signIn(signInInput: SignInInput!): SignInOutput!
   signInWithEmail(email: String!): SignInOutput!
   updateFolder(updateFolderInput: UpdateFolderInput!): UpdatedFolderOutput!
 }
@@ -140,20 +127,13 @@ type PurchaseCardOutput {
 }
 
 type Query {
-  cards: [Card!]!
   getAvailableCardsToPurchase(userId: String!): [AvailableCardToPurchase!]!
   getAvailableCardsToPutInDeck(userId: String!): [AvailableCardToPutInDeck!]!
   getCoinsByEmail(email: String!): Coins!
   getFolderById(getFolderByIdInput: GetFolderByIdInput!): Folder!
   getUserByEmail(email: String!): UserDetailInformation
   getUserById(id: String!): UserDetailInformation
-  sayHello: String!
   users: [User!]!
-}
-
-input SignInInput {
-  password: String!
-  username: String!
 }
 
 type SignInOutput {
