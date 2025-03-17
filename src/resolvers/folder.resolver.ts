@@ -10,12 +10,15 @@ import {
 import { FoldersService } from '../service/folders.service';
 import { UsersService } from '../service/users.service';
 import { AvailableCardToPutInDeck } from '../schemas/user.schemas';
+import { CommandBus } from '@nestjs/cqrs';
+import { UpdateFolderCommand } from '../commands/updateFolderCommand';
 
 @Resolver()
 export class FoldersResolver {
   constructor(
     private usersService: UsersService,
     private foldersService: FoldersService,
+    private readonly commandBus: CommandBus,
   ) {}
 
   @UseGuards(AuthGuard)
@@ -23,77 +26,13 @@ export class FoldersResolver {
   async updateFolder(
     @Args('updateFolderInput') updateFolderInput: UpdateFolderInput,
   ) {
-    const user = await this.usersService.findById(updateFolderInput.userId);
-    const folderToUpdate = user.folders.filter(
-      (x) => x._id.toString() === updateFolderInput.folderId,
+    return this.commandBus.execute(
+      new UpdateFolderCommand(
+        updateFolderInput.userId,
+        updateFolderInput.folderId,
+        updateFolderInput.cardIds,
+      ),
     );
-    const hasDuplicatedCards = this.checkForDuplicates(
-      updateFolderInput.cardIds,
-    );
-
-    if (folderToUpdate.length !== 1 || hasDuplicatedCards) {
-      return {
-        successful: false,
-        folderNotFound: folderToUpdate.length !== 1,
-        reachedMaxCopiesOfCard: hasDuplicatedCards,
-        cardNotExist: false,
-      };
-    }
-
-    const allIdsExists = await this.foldersService.checkAllIdsExist([
-      ...new Set(updateFolderInput.cardIds),
-    ]);
-
-    if (!allIdsExists) {
-      return {
-        successful: false,
-        folderNotFound: folderToUpdate.length !== 1,
-        cardNotExist: !allIdsExists,
-        reachedMaxCopiesOfCard: hasDuplicatedCards,
-      };
-    }
-
-    const indexFolderToUpdate = user.folders
-      .map((x) => x._id.toString())
-      .indexOf(updateFolderInput.folderId);
-
-    //@ts-ignore
-    user.folders[indexFolderToUpdate].cards = updateFolderInput.cardIds;
-    try {
-      await user.save();
-
-      return {
-        successful: true,
-        folderNotFound: folderToUpdate.length !== 1,
-        cardNotExist: false,
-        reachedMaxCopiesOfCard: hasDuplicatedCards,
-      };
-    } catch (error) {
-      return {
-        successful: false,
-        folderNotFound: folderToUpdate.length !== 1,
-        cardNotExist: allIdsExists,
-        reachedMaxCopiesOfCard: hasDuplicatedCards,
-      };
-    }
-  }
-
-  private checkForDuplicates(listOfCards) {
-    const cardCounts = {};
-
-    for (const card of listOfCards) {
-      if (cardCounts[card]) {
-        cardCounts[card]++;
-      } else {
-        cardCounts[card] = 1;
-      }
-
-      if (cardCounts[card] > 4) {
-        return true;
-      }
-    }
-
-    return false;
   }
 
   @UseGuards(AuthGuard)
